@@ -1,0 +1,138 @@
+name: note記事をホームページに反映
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"   # 3時間ごと
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/note-sync.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: noteのRSSからページを作る
+        run: |
+          python3 - <<'PY'
+          import re, html, urllib.request, xml.etree.ElementTree as ET
+          from email.utils import parsedate_to_datetime
+
+          RSS = "https://note.com/uriageupkeiei/rss"
+          SITE = "https://tbilisi.omeletrice.com"
+          LINE = "https://line.me/ti/p/NbbWZQWkPr"
+
+          req = urllib.request.Request(RSS, headers={"User-Agent": "Mozilla/5.0"})
+          root = ET.fromstring(urllib.request.urlopen(req, timeout=30).read())
+          ns = {"media": "http://search.yahoo.com/mrss/"}
+          items = []
+          for it in root.iter("item"):
+              title = (it.findtext("title") or "").strip()
+              link = (it.findtext("link") or "").strip()
+              desc = it.findtext("description") or ""
+              text = re.sub(r"<[^>]+>", "", desc).replace("続きをみる", "").strip()
+              text = re.sub(r"\s+", " ", text)
+              thumb = it.find("media:thumbnail", ns)
+              thumb = (thumb.text or "").strip() if thumb is not None else ""
+              try:
+                  d = parsedate_to_datetime(it.findtext("pubDate"))
+                  date = f"{d.year}年{d.month}月{d.day}日"
+                  iso = d.date().isoformat()
+              except Exception:
+                  date, iso = "", ""
+              if title and link:
+                  items.append(dict(title=title, link=link, text=text[:110], thumb=thumb, date=date, iso=iso))
+
+          e = html.escape
+
+          def card(i, big=False):
+              img = f'<img loading="lazy" src="{e(i["thumb"])}" alt="" style="width:100%;aspect-ratio:1.91/1;object-fit:cover;display:block">' if i["thumb"] else ""
+              return (f'<a href="{e(i["link"])}" style="display:block;text-decoration:none;color:#15171A;background:#fff;border:1px solid #E2E3E5">'
+                      f'{img}<div style="padding:1rem 1.1rem">'
+                      f'<div style="font-size:.8rem;color:#7A1F2B;font-weight:700">{e(i["date"])}</div>'
+                      f'<div style="font-family:\'Noto Serif JP\',serif;font-weight:700;line-height:1.6;margin:.3rem 0">{e(i["title"])}</div>'
+                      f'<div style="font-size:.88rem;color:#4A4D52;line-height:1.8">{e(i["text"])}…</div>'
+                      f'<div style="font-size:.85rem;margin-top:.5rem;color:#7A1F2B">noteで読む →</div></div></a>')
+
+          # 1) トップページのブロック
+          top = items[:3]
+          block = ('<!-- NOTE_FEED_START -->\n<section id="note" style="border-top: 1px solid #E2E3E5">\n'
+                   '<div style="max-width: 1080px; margin: 0 auto; padding: 4.5rem 1.5rem">\n'
+                   '<h2 style="font-family: \'Noto Serif JP\', serif; font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 0 0 0.5rem">noteの最新記事</h2>\n'
+                   '<p style="margin: 0 0 1.5rem; color: #4A4D52">トビリシでの手続きや暮らしの話を、noteでくわしく書いています。</p>\n'
+                   '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem">\n'
+                   + "\n".join(card(i) for i in top) +
+                   '\n</div>\n<p style="margin: 1.5rem 0 0"><a href="/notes.html">記事の一覧を見る →</a></p>\n</div>\n</section>\n<!-- NOTE_FEED_END -->')
+
+          shop = ('<!-- SHOP_START -->\n<section id="shop" style="background: #F6F6F4">\n'
+                  '<div style="max-width: 1080px; margin: 0 auto; padding: 4.5rem 1.5rem">\n'
+                  '<h2 style="font-family: \'Noto Serif JP\', serif; font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 0 0 0.5rem">トビリシのオムライス店（Japan Food Hub内）</h2>\n'
+                  '<p style="margin: 0 0 1rem; max-width: 760px">運営者がトビリシで営業している、日本の洋食オムライスのお店です。トビリシにお越しの際は、ぜひお立ち寄りください。移住や起業のご相談も、お店でお気軽にどうぞ。</p>\n'
+                  '<table style="border-collapse: collapse; font-size: .95rem"><tbody>\n'
+                  '<tr><td style="padding:.4rem 1.5rem .4rem 0;color:#4A4D52">場所</td><td>Japan Food Hub（1 Davit Gamrekeli St, Saburtalo, Tbilisi）</td></tr>\n'
+                  '<tr><td style="padding:.4rem 1.5rem .4rem 0;color:#4A4D52">営業時間</td><td>毎日 13:00〜22:00</td></tr>\n'
+                  '<tr><td style="padding:.4rem 1.5rem .4rem 0;color:#4A4D52">Instagram</td><td><a href="https://www.instagram.com/omeletland.tbilisi">@omeletland.tbilisi</a></td></tr>\n'
+                  '</tbody></table>\n'
+                  '<p style="margin: 1rem 0 0"><a href="https://www.google.com/maps/search/?api=1&amp;query=Japan+Food+Hub+1+Davit+Gamrekeli+St+Tbilisi">Googleマップで見る →</a></p>\n'
+                  '</div>\n</section>\n<!-- SHOP_END -->')
+
+          idx = open("index.html", encoding="utf-8").read()
+          def put(src, start, end, new):
+              if start in src:
+                  return re.sub(re.escape(start) + r".*?" + re.escape(end), lambda m: new, src, flags=re.S)
+              return src.replace('<section id="contact"', new + "\n\n" + '<section id="contact"', 1)
+          idx = put(idx, "<!-- SHOP_START -->", "<!-- SHOP_END -->", shop)
+          idx = put(idx, "<!-- NOTE_FEED_START -->", "<!-- NOTE_FEED_END -->", block)
+          open("index.html", "w", encoding="utf-8").write(idx)
+
+          # 2) 一覧ページ notes.html
+          cards = "\n".join(card(i) for i in items)
+          page = f'''<!doctype html>
+          <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>noteの記事一覧｜ジョージア移住・起業サポート</title>
+          <meta name="description" content="トビリシ在住の日本人が、ジョージアへの移住・起業・口座開設・就労許可について書いたnote記事の一覧です。">
+          <link rel="canonical" href="{SITE}/notes.html">
+          <meta property="og:title" content="noteの記事一覧｜ジョージア移住・起業サポート"><meta property="og:image" content="{SITE}/img/hero.jpg">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+          <style>body{{margin:0;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;color:#15171A;background:#fff;line-height:1.9}}a{{color:#7A1F2B}}
+          .fab{{position:fixed;z-index:50;text-decoration:none;font-weight:700;color:#fff;background:#06C755;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.18)}}
+          @media (min-width:768px){{.fab{{right:24px;bottom:24px;padding:0 1.4rem;min-height:56px;border-radius:28px}}}}
+          @media (max-width:767px){{.fab{{left:0;right:0;bottom:0;min-height:56px}}body{{padding-bottom:56px}}}}</style>
+          </head><body>
+          <header style="border-bottom:1px solid #E2E3E5"><div style="max-width:1080px;margin:0 auto;padding:1.1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap"><a href="/" style="font-family:'Noto Serif JP',serif;font-weight:700;text-decoration:none;color:#15171A">ジョージア移住・起業サポート</a><a href="{LINE}" style="text-decoration:none;background:#7A1F2B;color:#fff;padding:0 1.1rem;min-height:44px;display:inline-flex;align-items:center;font-weight:700">LINEで無料相談</a></div></header>
+          <main style="max-width:1080px;margin:0 auto;padding:3rem 1.5rem">
+          <h1 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.6rem,3.4vw,2.2rem);margin:0 0 .5rem">noteの記事一覧</h1>
+          <p style="color:#4A4D52;margin:0 0 2rem">トビリシで会社を作り、店を営業している運営者が、手続きや暮らしのことを書いています。</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem">
+          {cards}
+          </div></main>
+          <footer style="border-top:1px solid #E2E3E5;margin-top:4rem"><div style="max-width:1080px;margin:0 auto;padding:2rem 1.5rem;font-size:.82rem;color:#4A4D52">運営：株式会社オムライスランド　／　現地拠点：Tbilisi, Georgia　／　<a href="/#tokushoho" style="color:#4A4D52">特定商取引法に基づく表記</a></div></footer>
+          <a class="fab" href="{LINE}">LINEで無料相談（30分）</a>
+          </body></html>
+          '''
+          page = "\n".join(l[10:] if l.startswith(" " * 10) else l for l in page.split("\n"))
+          open("notes.html", "w", encoding="utf-8").write(page)
+
+          # 3) サイトマップ
+          sm = open("sitemap.xml", encoding="utf-8").read()
+          last = items[0]["iso"] if items and items[0]["iso"] else ""
+          if "/notes.html" not in sm:
+              sm = sm.replace("</urlset>", f"<url><loc>{SITE}/notes.html</loc><lastmod>{last}</lastmod></url>\n</urlset>")
+          elif last:
+              sm = re.sub(r"(<loc>" + re.escape(SITE) + r"/notes\.html</loc><lastmod>)[^<]*", r"\g<1>" + last, sm)
+          open("sitemap.xml", "w", encoding="utf-8").write(sm)
+          print(f"{len(items)} articles")
+          PY
+
+      - name: 変更があれば保存
+        run: |
+          git config user.name "note-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html notes.html sitemap.xml
+          git diff --cached --quiet || (git commit -m "noteの最新記事をホームページに反映" && git push)
