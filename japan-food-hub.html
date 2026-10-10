@@ -31,6 +31,8 @@ header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 .langs button:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 [data-l]{display:none}
 html[data-lang="en"] [data-l="en"],html[data-lang="ja"] [data-l="ja"],html[data-lang="ka"] [data-l="ka"]{display:block}
+html[data-lang="en"] span[data-l="en"],html[data-lang="ja"] span[data-l="ja"],html[data-lang="ka"] span[data-l="ka"]{display:inline}
+html[data-lang="ja"] .sub[data-l="ja"],html[data-lang="ka"] .sub[data-l="ka"]{display:block}
 .hero img{width:100%;height:clamp(260px,46vw,560px);object-fit:cover;display:block}
 .hero .wrap{padding-block:2.2rem 3rem}
 h1{font-family:"Noto Serif JP","Noto Sans Georgian",serif;font-size:clamp(1.7rem,4vw,2.7rem);line-height:1.35;margin:0 0 .8rem;text-wrap:balance}
@@ -60,6 +62,20 @@ section.soft{background:var(--soft)}
 .biz div{border-left:3px solid var(--red);padding-left:1rem}
 .biz b{display:block;font-size:1.05rem}
 .biz p{margin:.3rem 0 .5rem;color:var(--muted)}
+.card .logo{width:72px;height:72px;object-fit:contain;aspect-ratio:auto;margin-bottom:.3rem}
+.more{font-weight:700;text-decoration:none;margin-top:.3rem}
+.more span{display:none}
+html[data-lang="en"] .more [data-l="en"],html[data-lang="ja"] .more [data-l="ja"],html[data-lang="ka"] .more [data-l="ka"]{display:inline}
+.mblock{margin-bottom:2.5rem;scroll-margin-top:80px}
+h3{font-family:"Noto Serif JP","Noto Sans Georgian",serif;font-size:1.2rem;margin:1.6rem 0 .6rem;padding-bottom:.4rem;border-bottom:2px solid var(--ink)}
+ul.menu{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));column-gap:2.5rem}
+ul.menu li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line)}
+ul.menu li>div{min-width:0}
+.nm{display:block;font-weight:700}
+.sub{font-size:.88rem;color:var(--muted)}
+.pr{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--red)}
+.mnote{color:var(--muted);font-size:.95rem;margin:.8rem 0 0}
+.offer{background:#FFF6D6;border:1px solid var(--gold);padding:.9rem 1rem;margin:1rem 0 0}
 footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);font-size:.9rem}
 .small{font-size:.9rem;color:var(--muted)}
 </style>
@@ -96,37 +112,79 @@ footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);fo
 </div>
 
 <section id="kitchens" class="soft"><div class="wrap">
-<h2 data-l="en">The kitchens</h2><h2 data-l="ja">3つのお店</h2><h2 data-l="ka" lang="ka">სამზარეულოები</h2>
+<h2 data-l="en">Three kitchens, one table</h2><h2 data-l="ja">3つのお店、ひとつのテーブル</h2><h2 data-l="ka" lang="ka">სამი სამზარეულო, ერთი მაგიდა</h2>
+<p class="lead"><span data-l="en">Order from any kitchen and share at the same table. Open every day 13:00–22:00.</span><span data-l="ja">どのお店の料理も同じテーブルで頼めます。3店とも毎日13:00〜22:00。</span><span data-l="ka" lang="ka">შეუკვეთეთ ნებისმიერი სამზარეულოდან ერთსა და იმავე მაგიდასთან. ყოველდღე 13:00–22:00.</span></p>
 <div class="grid">
 <article class="card">
-<img src="img/ramen-boards.jpg" alt="Wooden boards at the ramen counter" loading="lazy">
+<img src="img/ramen-boards.jpg" alt="Wooden boards at the Onimusha ramen counter" loading="lazy">
 <div class="body">
+<img class="logo" src="img/logo-onimusha.png" alt="Onimusha logo" loading="lazy">
 <span class="kind">Ramen</span><b>Onimusha 鬼武者</b>
-<p data-l="en">Rich Japanese ramen made to order.</p>
-<p data-l="ja">注文を受けてから作る、日本のラーメン。</p>
+<p data-l="en">Japanese ramen made to order, with the samurai spirit on the wall.</p>
+<p data-l="ja">注文を受けてから作る日本のラーメン。</p>
 <p data-l="ka" lang="ka">იაპონური რამენი, მზადდება შეკვეთისთანავე.</p>
+<a href="#m-onimusha" class="more"><span data-l="en">Menu</span><span data-l="ja">メニュー</span><span data-l="ka" lang="ka">მენიუ</span> →</a>
 </div>
 </article>
 <article class="card">
-<img src="img/curry.jpg" alt="Japanese curry rice with cutlet" loading="lazy">
+<img src="img/curry.jpg" alt="Katsu curry with rice" loading="lazy">
 <div class="body">
-<span class="kind">Japanese curry</span><b>PEKOPEKO</b>
-<p data-l="en">Japanese-style curry rice, thick and mildly sweet.</p>
-<p data-l="ja">とろみのある、日本の家庭の味のカレーライス。</p>
-<p data-l="ka" lang="ka">იაპონური კარი ბრინჯით — სქელი და რბილი გემოს.</p>
+<img class="logo" src="img/logo-pekopeko.jpg" alt="PEKOPEKO logo" loading="lazy">
+<span class="kind">Japanese curry · from ₾15</span><b>PEKOPEKO</b>
+<p data-l="en">Rich, slow-simmered Japanese curry. Try the Katsu Curry — a crispy cutlet over golden curry and rice.</p>
+<p data-l="ja">じっくり煮込んだ日本のカレー。名物はとんかつカレー。</p>
+<p data-l="ka" lang="ka">მდიდარი, ნელა მოხარშული იაპონური კარი. სცადეთ კატსუ კარი — ხრაშუნა შნიცელი ოქროსფერ კარსა და ბრინჯზე.</p>
+<a href="#m-pekopeko" class="more"><span data-l="en">Menu</span><span data-l="ja">メニュー</span><span data-l="ka" lang="ka">მენიუ</span> →</a>
 </div>
 </article>
 <article class="card">
 <img src="img/omurice.jpg" alt="Omurice with tomato sauce and basil" loading="lazy">
 <div class="body">
-<span class="kind">Omurice</span><b>Omelet Land</b>
-<p data-l="en">Fluffy omelette over seasoned rice. Daily 13:00–22:00.</p>
-<p data-l="ja">ふわとろ卵のオムライス。毎日13:00〜22:00。オムライススタジアム2019北海道大会優勝の店主が作ります。</p>
-<p data-l="ka" lang="ka">ფაფუკი ომლეტი შეზავებულ ბრინჯზე. ყოველდღე 13:00–22:00.</p>
-<p><a href="https://www.instagram.com/omeletland.tbilisi/">Instagram @omeletland.tbilisi</a></p>
+<span class="kind">Omurice · Beef sushi</span><b>Omelet Land</b>
+<p data-l="en">Fluffy omelette over seasoned rice, by a chef who won Omurice Stadium 2019 in Hokkaido. Also seared roast-beef sushi.</p>
+<p data-l="ja">ふわとろ卵のオムライス。オムライススタジアム2019北海道大会優勝の店主が作ります。炙りローストビーフの肉寿司も。</p>
+<p data-l="ka" lang="ka">ფაფუკი ომლეტი შეზავებულ ბრინჯზე. ასევე შემწვარი როსტბიფის სუში.</p>
+<a href="#m-omelet" class="more"><span data-l="en">Menu</span><span data-l="ja">メニュー</span><span data-l="ka" lang="ka">მენიუ</span> →</a>
 </div>
 </article>
 </div>
+</div></section>
+
+<section id="menu"><div class="wrap">
+<h2 data-l="en">Menu</h2><h2 data-l="ja">メニュー</h2><h2 data-l="ka" lang="ka">მენიუ</h2>
+
+<div class="mblock" id="m-omelet">
+<h3><span data-l="en">Omelet Land — Omurice</span><span data-l="ja">オムライスランド — オムライス</span><span data-l="ka" lang="ka">ომლეტ ლენდი — ომურაისი</span></h3>
+<ul class="menu"><li><div><span class="nm">Crispy Chicken Steak Omurice</span><span class="sub" data-l="ja">クリスピーチキンステーキ</span><span class="sub" data-l="ka" lang="ka">ხრაშუნა ქათმის სტეიკი</span></div></li><li><div><span class="nm">Sulguni Cheese Omurice</span><span class="sub" data-l="ja">スルグニチーズ</span><span class="sub" data-l="ka" lang="ka">სულგუნის ყველით</span></div></li><li><div><span class="nm">Old-school Ketchup Omurice</span><span class="sub" data-l="ja">昔ながらのケチャップ</span><span class="sub" data-l="ka" lang="ka">კლასიკური კეტჩუპით</span></div></li><li><div><span class="nm">Tomato &amp; Basil Omurice</span><span class="sub" data-l="ja">トマトとバジル</span><span class="sub" data-l="ka" lang="ka">პომიდვრით და რეჰანით</span></div></li><li><div><span class="nm">White Sauce Omurice</span><span class="sub" data-l="ja">ホワイトソース</span><span class="sub" data-l="ka" lang="ka">თეთრი სოუსით</span></div></li><li><div><span class="nm">White Sauce &amp; Ketchup Omurice</span><span class="sub" data-l="ja">ホワイトソース＆ケチャップ</span><span class="sub" data-l="ka" lang="ka">თეთრი სოუსით და კეტჩუპით</span></div></li><li><div><span class="nm">Fuwa-Toro Soft Egg Omurice</span><span class="sub" data-l="ja">ふわとろたまご</span><span class="sub" data-l="ka" lang="ka">ფაფუკი კვერცხით</span></div></li></ul>
+<p class="mnote"><span data-l="en">Choose chicken rice or butter rice. Make it a set with salad, soup, or both. Toppings: extra sulguni, a third egg, karaage, avocado and more.</span><span data-l="ja">ライスはチキンライスかバターライス。サラダ・スープのセットや、スルグニ追加・卵3個目・唐揚げ・アボカドなどのトッピングもあります。</span><span data-l="ka" lang="ka">აირჩიეთ ქათმის ან კარაქის ბრინჯი. დაამატეთ სალათი, წვნიანი ან ორივე. დანამატები: სულგუნი, მესამე კვერცხი, კარააგე, ავოკადო და სხვა.</span></p>
+<h3><span data-l="en">Omelet Land — Plates &amp; sweets</span><span data-l="ja">オムライスランド — 一品・デザート</span><span data-l="ka" lang="ka">ომლეტ ლენდი — კერძები და დესერტი</span></h3>
+<ul class="menu"><li><div><span class="nm">Karaage (Japanese fried chicken)</span><span class="sub" data-l="ja">唐揚げ</span><span class="sub" data-l="ka" lang="ka">კარააგე — იაპონური შემწვარი ქათამი</span></div></li><li><div><span class="nm">Crispy-skin Chicken Steak</span><span class="sub" data-l="ja">皮パリチキンステーキ</span><span class="sub" data-l="ka" lang="ka">ხრაშუნა ქათმის სტეიკი</span></div></li><li><div><span class="nm">Showa Napolitan spaghetti</span><span class="sub" data-l="ja">昭和ナポリタン</span><span class="sub" data-l="ka" lang="ka">სპაგეტი ნაპოლიტანი</span></div></li><li><div><span class="nm">Potato Salad with Soft Egg</span><span class="sub" data-l="ja">半熟卵のポテトサラダ</span><span class="sub" data-l="ka" lang="ka">კარტოფილის სალათი რბილი კვერცხით</span></div></li><li><div><span class="nm">Tomato &amp; Sulguni Salad</span><span class="sub" data-l="ja">トマトとスルグニのサラダ</span><span class="sub" data-l="ka" lang="ka">პომიდვრის და სულგუნის სალათი</span></div></li><li><div><span class="nm">Crispy Potatoes</span><span class="sub" data-l="ja">カリカリポテト</span><span class="sub" data-l="ka" lang="ka">ხრაშუნა კარტოფილი</span></div></li><li><div><span class="nm">Japanese Pancakes</span><span class="sub" data-l="ja">日本のパンケーキ</span><span class="sub" data-l="ka" lang="ka">იაპონური ბლინები</span></div></li><li><div><span class="nm">Soup of the Day</span><span class="sub" data-l="ja">日替わりスープ</span><span class="sub" data-l="ka" lang="ka">დღის წვნიანი</span></div></li></ul>
+</div>
+
+<div class="mblock" id="m-sushi">
+<h3><span data-l="en">Beef Sushi — seared roast beef, made to order</span><span data-l="ja">肉寿司 — 炙りローストビーフ、注文ごとに</span><span data-l="ka" lang="ka">ბიფ სუში — შემწვარი როსტბიფი, შეკვეთისთანავე</span></h3>
+<ul class="menu"><li><div><span class="nm">Seared Roast Beef Nigiri — 1 piece</span><span class="sub" data-l="ja">炙りローストビーフ握り 1貫</span><span class="sub" data-l="ka" lang="ka">შემწვარი როსტბიფის ნიგირი — 1 ცალი</span></div><span class="pr">₾12</span></li><li><div><span class="nm">Nigiri — 2 pieces</span><span class="sub" data-l="ja">握り 2貫</span><span class="sub" data-l="ka" lang="ka">ნიგირი — 2 ცალი</span></div><span class="pr">₾22</span></li><li><div><span class="nm">Nigiri — 4 pieces</span><span class="sub" data-l="ja">握り 4貫</span><span class="sub" data-l="ka" lang="ka">ნიგირი — 4 ცალი</span></div><span class="pr">₾40</span></li><li><div><span class="nm">Nigiri — 6 pieces</span><span class="sub" data-l="ja">握り 6貫</span><span class="sub" data-l="ka" lang="ka">ნიგირი — 6 ცალი</span></div><span class="pr">₾56</span></li><li><div><span class="nm">Sushi Platter — 5 pieces, 5 toppings</span><span class="sub" data-l="ja">肉寿司 五貫盛り</span><span class="sub" data-l="ka" lang="ka">სუშის ასორტი — 5 ცალი</span></div><span class="pr">₾50</span></li><li><div><span class="nm">Roast Beef Roll — 8 pieces</span><span class="sub" data-l="ja">ローストビーフロール 8切</span><span class="sub" data-l="ka" lang="ka">როსტბიფის როლი — 8 ცალი</span></div><span class="pr">₾38</span></li><li><div><span class="nm">Karaage Roll — 8 pieces</span><span class="sub" data-l="ja">唐揚げロール 8切</span><span class="sub" data-l="ka" lang="ka">კარააგეს როლი — 8 ცალი</span></div><span class="pr">₾31</span></li><li><div><span class="nm">Veggie Roll — 8 pieces</span><span class="sub" data-l="ja">ベジロール 8切</span><span class="sub" data-l="ka" lang="ka">ვეგეტარიანული როლი — 8 ცალი</span></div><span class="pr">₾26</span></li><li><div><span class="nm">Roast Beef Don — regular 80 g</span><span class="sub" data-l="ja">ローストビーフ丼 並 80g</span><span class="sub" data-l="ka" lang="ka">როსტბიფის დონი — 80 გ</span></div><span class="pr">₾43</span></li><li><div><span class="nm">Roast Beef Don — large 120 g</span><span class="sub" data-l="ja">ローストビーフ丼 大盛り 120g</span><span class="sub" data-l="ka" lang="ka">როსტბიფის დონი — 120 გ</span></div><span class="pr">₾56</span></li></ul>
+<p class="mnote"><span data-l="en">Served with wasabi, gari and soy sauce. Toppings from +₾3: onion &amp; mayo, garlic chips, onion &amp; lemon, Japanese mayo.</span><span data-l="ja">わさび・ガリ・醤油つき。トッピング（+₾3〜）：オニオンマヨ・ガーリックチップ・オニオンレモン・特製マヨ。</span><span data-l="ka" lang="ka">მიირთვით ვასაბით, ჯანჯაფილით და სოიოს სოუსით. დანამატები +₾3-დან.</span></p>
+</div>
+
+<div class="mblock" id="m-pekopeko">
+<h3><span data-l="en">PEKOPEKO — Japanese curry</span><span data-l="ja">ペコペコ — 日本のカレー</span><span data-l="ka" lang="ka">პეკო პეკო — იაპონური კარი</span></h3>
+<ul class="menu"><li><div><span class="nm">Japanese curry rice</span><span class="sub" data-l="ja">カレーライス</span><span class="sub" data-l="ka" lang="ka">იაპონური კარი ბრინჯით</span></div><span class="pr">from ₾15</span></li><li><div><span class="nm">Katsu Curry — pork cutlet over curry and rice</span><span class="sub" data-l="ja">とんかつカレー</span><span class="sub" data-l="ka" lang="ka">კატსუ კარი — ღორის შნიცელი კარით და ბრინჯით</span></div></li><li><div><span class="nm">Special PEKOPEKO Curry — omelette, karaage and vegetables</span><span class="sub" data-l="ja">スペシャルペコペコカレー（卵・唐揚げ・野菜）</span><span class="sub" data-l="ka" lang="ka">სპეციალური პეკო პეკო კარი — ომლეტი, კარააგე, ბოსტნეული</span></div></li></ul>
+<p class="offer"><b><span data-l="en">Opening offer: free cheese or egg topping with any curry.</span><span data-l="ja">オープン記念：どのカレーにもチーズか卵のトッピングが無料。</span><span data-l="ka" lang="ka">გახსნის შეთავაზება: უფასო თოფინგი ნებისმიერ კართან — ყველი ან კვერცხი.</span></b><br><span class="small"><span data-l="en">Until 31 October 2026. One per table, dine-in only. Not combinable with other offers.</span><span data-l="ja">2026年10月31日まで。1テーブル1回、店内のみ。他の割引と併用不可。</span><span data-l="ka" lang="ka">მოქმედებს 2026 წლის 31 ოქტომბრამდე. ერთი კუპონი მაგიდაზე. მხოლოდ დარბაზში. არ ჯამდება სხვა შეთავაზებებთან.</span></span></p>
+</div>
+
+<div class="mblock" id="m-onimusha">
+<h3><span data-l="en">Onimusha — Ramen</span><span data-l="ja">鬼武者 — ラーメン</span><span data-l="ka" lang="ka">ონიმუშა — რამენი</span></h3>
+<p class="mnote"><span data-l="en">Ramen bowls made to order. Ask our staff for today's bowls.</span><span data-l="ja">注文を受けてから作るラーメン。今日の一杯はスタッフにお聞きください。</span><span data-l="ka" lang="ka">რამენი მზადდება შეკვეთისთანავე. დღის მენიუ ჰკითხეთ პერსონალს.</span></p>
+</div>
+
+<div class="mblock" id="m-bar">
+<h3><span data-l="en">The Bar — cocktails</span><span data-l="ja">バー — カクテル</span><span data-l="ka" lang="ka">ბარი — კოქტეილები</span></h3>
+<ul class="menu"><li><div><span class="nm">Kahlúa Milk</span><span class="sub" data-l="ja">カルーアミルク</span><span class="sub" data-l="ka" lang="ka">კალუა რძით</span></div><span class="pr">₾18</span></li><li><div><span class="nm">Fuzzy Navel</span><span class="sub" data-l="ja">ファジーネーブル</span><span class="sub" data-l="ka" lang="ka">ფაზი ნეველი</span></div><span class="pr">₾18</span></li><li><div><span class="nm">Lemon Sour</span><span class="sub" data-l="ja">レモンサワー</span><span class="sub" data-l="ka" lang="ka">ლიმონის საუერი</span></div><span class="pr">₾16</span></li><li><div><span class="nm">Chacha Sour</span><span class="sub" data-l="ja">チャチャサワー</span><span class="sub" data-l="ka" lang="ka">ჭაჭის საუერი</span></div><span class="pr">₾16</span></li></ul>
+<h3><span data-l="en">Georgian wine, beer &amp; soft drinks</span><span data-l="ja">ジョージアワイン・ビール・ソフトドリンク</span><span data-l="ka" lang="ka">ქართული ღვინო, ლუდი და უალკოჰოლო</span></h3>
+<ul class="menu"><li><div><span class="nm">Rkatsiteli, dry white — glass / bottle</span><span class="sub" data-l="ja">ルカツィテリ（白・辛口）グラス／ボトル</span><span class="sub" data-l="ka" lang="ka">რქაწითელი, მშრალი თეთრი — ჭიქა / ბოთლი</span></div><span class="pr">₾12 / ₾42</span></li><li><div><span class="nm">Qvevri Amber Rkatsiteli — glass / bottle</span><span class="sub" data-l="ja">クヴェヴリのアンバー グラス／ボトル</span><span class="sub" data-l="ka" lang="ka">ქვევრის ქარვისფერი — ჭიქა / ბოთლი</span></div><span class="pr">₾14 / ₾48</span></li><li><div><span class="nm">Saperavi, dry red — glass / bottle</span><span class="sub" data-l="ja">サペラヴィ（赤・辛口）グラス／ボトル</span><span class="sub" data-l="ka" lang="ka">საფერავი, მშრალი წითელი — ჭიქა / ბოთლი</span></div><span class="pr">₾12 / ₾42</span></li><li><div><span class="nm">Georgian lager 0.5 L</span><span class="sub" data-l="ja">ジョージアビール 0.5L</span><span class="sub" data-l="ka" lang="ka">ქართული ლუდი 0.5 ლ</span></div><span class="pr">₾9</span></li><li><div><span class="nm">Japanese beer 0.33 L</span><span class="sub" data-l="ja">日本のビール 0.33L</span><span class="sub" data-l="ka" lang="ka">იაპონური ლუდი 0.33 ლ</span></div><span class="pr">₾16</span></li><li><div><span class="nm">Melon cream soda</span><span class="sub" data-l="ja">メロンクリームソーダ</span><span class="sub" data-l="ka" lang="ka">ნესვის კრემ-სოდა</span></div><span class="pr">₾14</span></li><li><div><span class="nm">Green tea, hot or iced</span><span class="sub" data-l="ja">緑茶（ホット／アイス）</span><span class="sub" data-l="ka" lang="ka">მწვანე ჩაი, ცხელი ან ცივი</span></div><span class="pr">₾8</span></li><li><div><span class="nm">Home-made lemonade</span><span class="sub" data-l="ja">自家製レモネード</span><span class="sub" data-l="ka" lang="ka">სახლის ლიმონათი</span></div><span class="pr">₾8</span></li></ul>
+</div>
+<p class="small"><span data-l="en">Prices in Georgian lari (₾) for dine-in. Delivery prices on Wolt may differ.</span><span data-l="ja">価格は店内のジョージア・ラリ（₾）。Woltの配達価格とは異なります。</span><span data-l="ka" lang="ka">ფასები ლარში, დარბაზისთვის. Wolt-ზე მიწოდების ფასი შეიძლება განსხვავდებოდეს.</span></p>
 </div></section>
 
 <section id="visit"><div class="wrap">
