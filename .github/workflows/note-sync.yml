@@ -25,7 +25,7 @@ jobs:
 
           RSS = "https://note.com/uriageupkeiei/rss"
           SITE = "https://tbilisi.omeletrice.com"
-          LINE = "https://line.me/ti/p/NbbWZQWkPr"
+          LINE = "https://line.me/R/ti/p/@aloha0154659894"
 
           req = urllib.request.Request(RSS, headers={"User-Agent": "Mozilla/5.0"})
           root = ET.fromstring(urllib.request.urlopen(req, timeout=30).read())
