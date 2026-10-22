@@ -83,6 +83,14 @@ section{padding:5.5rem 0}
 .pkg h3{color:#FBF4E6}
 .price{white-space:nowrap;font-family:"Cormorant Garamond",serif;font-size:clamp(1.8rem,2.6vw,2.3rem);color:var(--gold2);font-weight:600;margin:.2rem 0 .9rem}
 .pkg ul{padding-left:1.1rem;margin:0;color:#D9CDB6}
+.royal{margin-top:1.25rem;border:1px solid var(--gold2);padding:2.6rem 2.2rem;display:grid;grid-template-columns:1fr 1.3fr;gap:2.5rem;align-items:center;background:linear-gradient(120deg,rgba(110,26,42,.55),rgba(20,16,12,.2) 70%),url(img/wedding/tsinandali-grand-hall.jpg) center/cover;position:relative}
+.royal::before{content:"";position:absolute;inset:0;background:rgba(20,16,12,.55)}
+.royal>*{position:relative}
+.royal h3{font-size:clamp(1.9rem,3.4vw,2.6rem);color:#FBF4E6}
+.royal .price{white-space:normal;font-size:1.8rem}
+.royal ul{columns:2;column-gap:2rem;padding-left:1.1rem;margin:0;color:#E9DFCC}
+.royal .btn{margin-top:1.2rem}
+@media (max-width:760px){.royal{grid-template-columns:1fr;gap:1.2rem;padding:2rem 1.4rem}.royal ul{columns:1}}
 .incl{margin-top:2rem;color:#BFB29A;font-size:.95rem;max-width:52rem}
 
 /* days */
@@ -200,6 +208,11 @@ footer a{color:#CDBFA6}
       <div class="pkg"><div class="eyebrow">Intimate</div><h3>40–60 guests</h3><div class="price">from USD 25,000</div><ul><li>A boutique hotel in Tbilisi</li><li>Indian catering from Tbilisi’s Indian kitchens</li><li>Portraits in Tbilisi’s Old Town</li></ul></div>
       <div class="pkg feature"><div class="eyebrow">Signature</div><h3>100–130 guests</h3><div class="price">from USD 65,000</div><ul><li>A palace wine estate in Kakheti, fully reserved</li><li>Pheras on the palace lawn</li><li>Georgian wine at every function</li></ul></div>
       <div class="pkg"><div class="eyebrow">Grand</div><h3>150–250 guests</h3><div class="price">from USD 110,000</div><ul><li>Full estate or resort buyout</li><li>A different venue for each function</li><li>Our team with you for all three days</li></ul></div>
+    </div>
+    <div class="royal">
+      <div><div class="eyebrow" style="color:var(--gold2)">Royal · by invitation</div><h3>Bespoke celebrations, 300–1,000 guests</h3><div class="price">Price on request</div><p style="color:#D9CDB6;margin:0">For families who want the whole region for their wedding. Typically from USD 500,000.</p></div>
+      <div><ul><li>Several estates reserved at once</li><li>Five days of functions</li><li>Charter flights for your guests</li><li>Helicopter transfers</li><li>International artists and performers</li><li>Private chefs from India</li><li>Luxury suites for the family</li><li>A dedicated team of 30+ on site</li></ul>
+      <a class="btn btn-gold" href="https://wa.me/819087080598?text=Hello%2C%20we%20are%20interested%20in%20a%20Royal%20wedding%20in%20Georgia.">Request a private consultation</a></div>
     </div>
     <p class="incl">Every package includes: venue and rooms, all Indian meals, airport welcome and coaches, mandap and floral decor, pandit, mehndi artist, dhol and DJ, photographer, interpreters and our on-site coordinators.</p>
   </div>
