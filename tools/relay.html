@@ -1,0 +1,7 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>relay</title></head><body>
+<script>
+// 投稿作業用：このサイトの画像を、開いた元のページ（SNSの投稿画面）へ渡すだけの小さなページ。
+(async()=>{const q=new URLSearchParams(location.search);const list=(q.get('imgs')||'').split(',').filter(Boolean);
+const files=[];for(const p of list){if(!/^[\w\/.-]+\.(jpe?g|png|mp4)$/i.test(p))continue;const r=await fetch('/'+p);const b=await r.blob();files.push(new File([b],p.split('/').pop(),{type:b.type}));}
+if(window.opener){window.opener.postMessage({kind:'imgs',files},'*');document.body.textContent='sent '+files.length;setTimeout(()=>window.close(),800);}})();
+</script></body></html>
