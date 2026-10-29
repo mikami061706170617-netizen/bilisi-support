@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Try QR Table Ordering (Demo) | Omurice Land, Tbilisi</title>
+<meta name="description" content="Try the QR table ordering system yourself: order as a guest on the left, see the order arrive on the staff screen on the right. 6 languages. Demo only, no real order is sent.">
+<link rel="canonical" href="https://tbilisi.omeletrice.com/qr-demo.html">
+<meta property="og:title" content="Try QR Table Ordering – live demo"><meta property="og:image" content="https://tbilisi.omeletrice.com/img/qr-order-screen.jpg">
+<style>
+:root{--ink:#15171A;--gold:#B8902E;--cream:#F6EEE2;--wine:#7A1F2B;--line:#E2E3E5;--muted:#5A5D62;--ok:#1E7A46}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,'Segoe UI',Roboto,'Noto Sans Georgian','Noto Sans JP',sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+header{background:var(--ink);color:#fff}header .w{padding:.9rem 16px;font-weight:700;letter-spacing:.04em;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+header a{color:#fff;font-weight:400;font-size:.9rem}
+.w{max-width:1100px;margin:0 auto;padding:0 16px}
+.intro{background:var(--cream);padding:1.6rem 0 1.2rem}
+h1{font-size:1.7rem;line-height:1.3;margin:0 0 .4rem}
+.ka{color:var(--wine);font-weight:700;margin:0 0 .6rem}
+.note{display:inline-block;background:#fff;border:1px solid var(--gold);padding:.3rem .7rem;font-size:.9rem}
+.stage{display:grid;grid-template-columns:390px 1fr;gap:28px;padding:24px 0 40px;align-items:start}
+.stage>div{min-width:0}
+.lbl{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--muted);margin:0 0 .5rem;text-transform:uppercase}
+/* phone */
+.phone{border:10px solid var(--ink);border-radius:34px;overflow:hidden;background:#fff;height:740px;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.ptop{background:var(--ink);color:#fff;padding:.7rem .9rem .6rem}
+.ptop .r{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.shop{font-weight:700}.tbl{font-size:.8rem;background:var(--gold);color:var(--ink);padding:.1rem .5rem;font-weight:700}
+.langs{display:flex;gap:4px;margin-top:.55rem;flex-wrap:wrap}
+.langs button{background:transparent;color:#fff;border:1px solid #666;font-size:.78rem;padding:.2rem .5rem;cursor:pointer;min-height:30px}
+.langs button.on{background:#fff;color:var(--ink);border-color:#fff}
+.cats{display:flex;gap:6px;padding:.55rem .7rem;border-bottom:1px solid var(--line);overflow-x:auto}
+.cats button{border:1px solid var(--line);background:#fff;padding:.25rem .7rem;border-radius:20px;white-space:nowrap;cursor:pointer;font-size:.88rem;min-height:34px}
+.cats button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.list{flex:1;overflow-y:auto;padding:.4rem .7rem}
+.item{display:grid;grid-template-columns:84px 1fr;gap:.7rem;padding:.6rem 0;border-bottom:1px solid #f0f0f0}
+.item img{width:84px;height:84px;object-fit:cover;border-radius:8px;background:#eee}
+.item .ph{width:84px;height:84px;border-radius:8px;background:var(--cream)}
+.item b{display:block;font-size:.95rem;line-height:1.3}
+.item p{margin:.15rem 0 .35rem;font-size:.8rem;color:var(--muted);line-height:1.35}
+.row{display:flex;justify-content:space-between;align-items:center}
+.price{font-weight:700}
+.qty{display:flex;align-items:center;gap:.4rem}
+.qty button{width:32px;height:32px;border-radius:50%;border:1px solid var(--ink);background:#fff;font-size:1.1rem;cursor:pointer;line-height:1}
+.qty button.add{background:var(--ink);color:#fff}
+.pbar{border-top:1px solid var(--line);padding:.55rem .7rem;display:grid;gap:.45rem}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.svc button{border:1px solid var(--line);background:#fafafa;font-size:.76rem;padding:.35rem .2rem;cursor:pointer;min-height:38px;line-height:1.2}
+.order{background:var(--gold);color:var(--ink);border:0;font-weight:700;font-size:1rem;min-height:48px;cursor:pointer}
+.order:disabled{background:#ddd;color:#888;cursor:default}
+.toast{position:absolute;left:50%;transform:translateX(-50%);bottom:110px;background:var(--ok);color:#fff;padding:.5rem .9rem;border-radius:6px;font-size:.88rem;opacity:0;transition:opacity .25s;pointer-events:none;width:max-content;max-width:90%}
+.toast.show{opacity:1}
+.pwrap{position:relative}
+/* staff */
+.staff{border:1px solid var(--line);background:#1b1816;color:#f3ebdd;min-height:740px;display:flex;flex-direction:column}
+.shead{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1rem;border-bottom:1px solid #3a332d;gap:.6rem;flex-wrap:wrap}
+.shead b{color:#c9a24b}
+.shead small{color:#b8ad9c}
+.scols{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;flex:1;align-content:start}
+.scols h3{margin:0 0 .5rem;font-size:.85rem;color:#b8ad9c;letter-spacing:.06em}
+.ticket{background:#fff;color:var(--ink);border-left:6px solid var(--gold);padding:.6rem .7rem;margin-bottom:10px;animation:pop .4s}
+.ticket.call{border-left-color:#C0392B}
+.ticket .th{display:flex;justify-content:space-between;font-weight:700;font-size:.92rem}
+.ticket ul{margin:.35rem 0 .45rem;padding-left:1.1rem;font-size:.9rem}
+.ticket .ft{display:flex;justify-content:space-between;align-items:center;font-size:.85rem}
+.ticket button{background:var(--ink);color:#fff;border:0;padding:.35rem .8rem;cursor:pointer;min-height:34px}
+.empty{color:#8d8475;font-size:.88rem;border:1px dashed #4a4239;padding:1rem;text-align:center}
+.tot{padding:.7rem 1rem;border-top:1px solid #3a332d;font-size:.9rem;color:#b8ad9c}
+@keyframes pop{from{transform:scale(.96);opacity:.3}to{transform:none;opacity:1}}
+.how{padding:0 0 1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{border:1px solid var(--line);padding:1rem 1.1rem}.card b{display:block;margin-bottom:.3rem}
+h2{font-size:1.3rem;margin:1.8rem 0 .9rem}
+.cta{background:var(--ink);color:#fff;padding:1.8rem 0;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 1.3rem;font-weight:700;text-decoration:none;margin:.4rem .6rem .4rem 0}
+.wa{background:#25D366;color:var(--ink)}.ml{background:#fff;color:var(--ink)}.gd{background:var(--gold);color:var(--ink)}
+.small{font-size:.9rem;color:var(--muted)}
+.tabs{display:none}
+@media(max-width:860px){
+ .stage{grid-template-columns:1fr}
+ .tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:16px 0 0}
+ .tabs button{min-height:44px;border:1px solid var(--ink);background:#fff;font-weight:700;cursor:pointer}
+ .tabs button.on{background:var(--ink);color:#fff}
+ .stage[data-view=guest] .scol{display:none}
+ .stage[data-view=staff] .gcol{display:none}
+ .phone{height:680px;border-width:8px}
+ .staff{min-height:520px}
+ .scols{grid-template-columns:1fr}
+ .badge{display:inline-block;background:#C0392B;color:#fff;border-radius:10px;padding:0 .45rem;font-size:.75rem;margin-left:.3rem}
+}
+@media(max-width:400px){.phone{border-width:0;border-radius:0;box-shadow:none;border-top:1px solid var(--line)}}
+</style></head><body>
+<header><div class="w"><span>OMURICE LAND · Japan Food Hub, Tbilisi</span><a href="qr-order.html">Plans &amp; prices →</a></div></header>
+<section class="intro"><div class="w">
+<h1>Try it yourself: QR table ordering</h1>
+<p class="ka">სცადეთ თავად: QR შეკვეთა მაგიდიდან · Попробуйте сами</p>
+<p>On the left is what your guest sees after scanning the QR code on the table. On the right is your staff screen. Add dishes, press <b>Place order</b>, and watch it arrive.</p>
+<span class="note">Demo only: no real order is sent. Sample menu and prices.</span>
+</div></section>
+<div class="w">
+<div class="tabs" role="tablist"><button id="tg" class="on" onclick="view('guest')">Guest phone</button><button id="ts" onclick="view('staff')">Staff screen <span id="sbadge"></span></button></div>
+<div class="stage" id="stage" data-view="guest">
+<div class="gcol">
+<p class="lbl">Guest phone · Table 4</p>
+<div class="pwrap">
+<div class="phone">
+ <div class="ptop"><div class="r"><span class="shop">Your Restaurant</span><span class="tbl" id="tblLbl">Table 4</span></div>
+ <div class="langs" id="langs"></div></div>
+ <div class="cats" id="cats"></div>
+ <div class="list" id="list"></div>
+ <div class="pbar">
+  <div class="svc"><button onclick="svc('call')" id="bCall"></button><button onclick="svc('cutlery')" id="bCut"></button><button onclick="svc('bill')" id="bBill"></button></div>
+  <button class="order" id="orderBtn" onclick="place()" disabled></button>
+ </div>
+</div>
+<div class="toast" id="toast"></div>
+</div>
+</div>
+<div class="scol">
+<p class="lbl">Staff screen (tablet or phone at the counter)</p>
+<div class="staff">
+ <div class="shead"><b>Orders · Your Restaurant</b><small>Staff see orders in their own language</small></div>
+ <div class="scols">
+  <div><h3>NEW ORDERS</h3><div id="orders"><div class="empty">No orders yet. Place an order on the guest phone.</div></div></div>
+  <div><h3>CALLS FROM TABLES</h3><div id="calls"><div class="empty">Call staff, cutlery and bill requests appear here.</div></div></div>
+ </div>
+ <div class="tot" id="tot">Today in this demo: 0 orders · 0 GEL</div>
+</div>
+</div>
+</div>
+
+<div class="how">
+<h2>What this means for your restaurant</h2>
+<div class="grid">
+<div class="card"><b>Fewer missed orders</b>The order goes straight from the guest to your staff, written down, with the table number. No shouting, no lost paper.</div>
+<div class="card"><b>Tourists order more</b>The menu switches to English, Georgian, Russian, Chinese, Korean and Japanese. Guests read what they eat and add a drink or dessert.</div>
+<div class="card"><b>Small team, busy lunch</b>Staff don't have to walk to every table to take the order. They bring food and keep the tables happy.</div>
+<div class="card"><b>Your menu, your photos</b>We enter your menu, your photos and your GEL prices, and print the QR codes for your tables.</div>
+</div>
+<h2>Next step</h2>
+<p>This demo uses a sample menu. In the 1-month free trial we put <b>your</b> menu in, print QR codes for your tables and show your staff how to use it. You can also come to Japan Food Hub (1 Davit Gamrekeli St, Saburtalo) and order from a real table with your own phone.</p>
+<p class="small">Plans after the free month: Start 49 GEL, Standard 99 GEL (we do the setup and come to fix things), All-in 199 GEL per month.</p>
+</div>
+</div>
+<section class="cta"><div class="w">
+<h2 style="margin-top:0">Want it with your own menu?</h2>
+<p>Kyohei Mikami, owner of Omurice Land (OMURICELAND LLC). Every day 13:00–24:00 at Japan Food Hub.</p>
+<a class="btn wa" href="https://wa.me/819087080598?text=QR%20order%20demo%20-%20I%20want%20the%20free%20month">WhatsApp</a><a class="btn ml" href="mailto:admin@omeletrice.com?subject=QR%20ordering%20free%20month">admin@omeletrice.com</a><a class="btn gd" href="qr-order.html">See plans</a>
+<p class="small" style="color:#ccc">English or Japanese. ქართულად — ჩვენი თანამშრომელი დაგეხმარებათ.</p>
+</div></section>
+<script>
+const T={
+en:{cats:["Popular","Mains","Salads","Drinks"],order:"Place order",items:"items",call:"Call staff",cut:"Plates & cutlery",bill:"Check, please",sent:"Order sent to the staff ✓",called:"Staff are coming ✓",table:"Table 4"},
+ka:{cats:["პოპულარული","ძირითადი","სალათები","სასმელები"],order:"შეკვეთა",items:"ერთეული",call:"მიმტანის გამოძახება",cut:"თეფში და დანა-ჩანგალი",bill:"ანგარიში",sent:"შეკვეთა გაიგზავნა ✓",called:"მიმტანი მოდის ✓",table:"მაგიდა 4"},
+ru:{cats:["Популярное","Основные","Салаты","Напитки"],order:"Заказать",items:"поз.",call:"Позвать официанта",cut:"Тарелки и приборы",bill:"Счёт",sent:"Заказ отправлен ✓",called:"Официант идёт ✓",table:"Стол 4"},
+zh:{cats:["人气","主菜","沙拉","饮品"],order:"下单",items:"件",call:"呼叫服务员",cut:"餐具",bill:"结账",sent:"订单已发送 ✓",called:"服务员马上来 ✓",table:"4号桌"},
+ko:{cats:["인기","메인","샐러드","음료"],order:"주문하기",items:"개",call:"직원 호출",cut:"접시·수저",bill:"계산서",sent:"주문이 전송되었습니다 ✓",called:"직원이 갑니다 ✓",table:"4번 테이블"},
+ja:{cats:["人気","メイン","サラダ","ドリンク"],order:"注文する",items:"点",call:"店員を呼ぶ",cut:"取り皿・カトラリー",bill:"お会計",sent:"注文を送りました ✓",called:"店員が伺います ✓",table:"4番テーブル"}};
+const LL={en:"EN",ka:"ქარ",ru:"RU",zh:"中文",ko:"한국어",ja:"日本語"};
+const M=[
+{id:1,c:[0,1],p:22,img:"img/khachapuri.jpg",n:{en:"Adjarian khachapuri",ka:"აჭარული ხაჭაპური",ru:"Хачапури по-аджарски",zh:"阿扎尔奶酪船面包",ko:"아자르식 하차푸리",ja:"アジャルリ・ハチャプリ"},d:{en:"Bread boat with cheese, egg and butter",ka:"ყველი, კვერცხი, კარაქი",ru:"Сыр, яйцо и масло",zh:"芝士、鸡蛋、黄油",ko:"치즈, 달걀, 버터",ja:"チーズ・卵・バター入りの舟形パン"}},
+{id:2,c:[0,1],p:12,img:"img/khinkali.jpg",n:{en:"Khinkali (5 pcs)",ka:"ხინკალი (5 ც)",ru:"Хинкали (5 шт)",zh:"格鲁吉亚小笼包（5个）",ko:"힌칼리 (5개)",ja:"ヒンカリ（5個）"},d:{en:"Juicy dumplings with beef and pork",ka:"საქონლის და ღორის ხორცით",ru:"С говядиной и свининой",zh:"牛肉猪肉馅",ko:"소고기·돼지고기 만두",ja:"牛豚肉のジューシーな小籠包"}},
+{id:3,c:[0,1],p:25,img:"img/omurice.jpg",n:{en:"Omurice",ka:"ომურაისი",ru:"Омурайс",zh:"蛋包饭",ko:"오므라이스",ja:"オムライス"},d:{en:"Soft omelette on chicken rice",ka:"რბილი ომლეტი ქათმის ბრინჯზე",ru:"Омлет на рисе с курицей",zh:"嫩滑蛋包鸡肉饭",ko:"부드러운 오믈렛과 치킨라이스",ja:"とろとろ卵のチキンライス"}},
+{id:4,c:[1],p:22,img:"img/curry.jpg",n:{en:"Japanese curry rice",ka:"იაპონური კარი ბრინჯით",ru:"Японский карри с рисом",zh:"日式咖喱饭",ko:"일본식 카레라이스",ja:"カレーライス"},d:{en:"Mild curry, rice, pickles",ka:"რბილი კარი, ბრინჯი",ru:"Мягкий карри, рис",zh:"温和咖喱、米饭",ko:"순한 카레, 밥",ja:"甘口カレー・ごはん"}},
+{id:5,c:[1],p:24,img:"img/ramen.jpg",n:{en:"Ramen",ka:"რამენი",ru:"Рамен",zh:"拉面",ko:"라멘",ja:"ラーメン"},d:{en:"Noodle soup with pork and egg",ka:"ლაფში ღორის ხორცით და კვერცხით",ru:"Суп с лапшой, свининой и яйцом",zh:"猪肉鸡蛋汤面",ko:"돼지고기·달걀 라멘",ja:"チャーシュー・味玉入り"}},
+{id:6,c:[2],p:18,img:"img/caprese.jpg",n:{en:"Caprese salad",ka:"კაპრეზე",ru:"Капрезе",zh:"卡普雷塞沙拉",ko:"카프레제 샐러드",ja:"カプレーゼ"},d:{en:"Tomato, mozzarella, basil",ka:"პომიდორი, მოცარელა, რეჰანი",ru:"Томаты, моцарелла, базилик",zh:"番茄、马苏里拉、罗勒",ko:"토마토, 모차렐라, 바질",ja:"トマト・モッツァレラ・バジル"}},
+{id:7,c:[3],p:6,n:{en:"Tarragon lemonade",ka:"ტარხუნის ლიმონათი",ru:"Лимонад тархун",zh:"龙蒿柠檬水",ko:"타라곤 레모네이드",ja:"タラゴンレモネード"},d:{en:"Georgian classic, 0.5 L",ka:"0.5 ლ",ru:"0,5 л",zh:"0.5升",ko:"0.5L",ja:"0.5L"}},
+{id:8,c:[3],p:7,n:{en:"Cappuccino",ka:"კაპუჩინო",ru:"Капучино",zh:"卡布奇诺",ko:"카푸치노",ja:"カプチーノ"},d:{en:"Hot",ka:"ცხელი",ru:"Горячий",zh:"热",ko:"따뜻한",ja:"ホット"}},
+{id:9,c:[3],p:5,n:{en:"Mineral water",ka:"მინერალური წყალი",ru:"Минеральная вода",zh:"矿泉水",ko:"탄산수",ja:"ミネラルウォーター"},d:{en:"Borjomi 0.5 L",ka:"ბორჯომი 0.5 ლ",ru:"Боржоми 0,5 л",zh:"博尔若米 0.5升",ko:"보르조미 0.5L",ja:"ボルジョミ 0.5L"}}];
+let lang="en",cat=0,cart={},nOrders=0,sum=0,unseen=0,ticket=100;
+const $=id=>document.getElementById(id);
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function render(){
+ const t=T[lang];document.documentElement.lang=lang;
+ $("langs").innerHTML=Object.keys(LL).map(l=>`<button class="${l===lang?'on':''}" onclick="setLang('${l}')">${LL[l]}</button>`).join("");
+ $("cats").innerHTML=t.cats.map((c,i)=>`<button class="${i===cat?'on':''}" onclick="setCat(${i})">${esc(c)}</button>`).join("");
+ $("tblLbl").textContent=t.table;
+ $("list").innerHTML=M.filter(m=>m.c.includes(cat)).map(m=>{const q=cart[m.id]||0;return `<div class="item">${m.img?`<img src="${m.img}" alt="" loading="lazy">`:'<div class="ph"></div>'}<div><b>${esc(m.n[lang])}</b><p>${esc(m.d[lang])}</p><div class="row"><span class="price">${m.p} ₾</span><span class="qty">${q?`<button onclick="chg(${m.id},-1)" aria-label="-">−</button><span>${q}</span>`:''}<button class="add" onclick="chg(${m.id},1)" aria-label="+">+</button></span></div></div></div>`}).join("");
+ $("bCall").textContent=t.call;$("bCut").textContent=t.cut;$("bBill").textContent=t.bill;
+ const n=Object.values(cart).reduce((a,b)=>a+b,0),s=M.reduce((a,m)=>a+(cart[m.id]||0)*m.p,0);
+ $("orderBtn").disabled=!n;$("orderBtn").textContent=n?`${t.order} · ${n} ${t.items} · ${s} ₾`:t.order;
+}
+function setLang(l){lang=l;render()}
+function setCat(i){cat=i;render()}
+function chg(id,d){cart[id]=Math.max(0,(cart[id]||0)+d);if(!cart[id])delete cart[id];render()}
+function toast(msg){const e=$("toast");e.textContent=msg;e.classList.add("show");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("show"),1800)}
+function time(){return new Date().toTimeString().slice(0,5)}
+function clearEmpty(box){const e=box.querySelector(".empty");if(e)e.remove()}
+function bump(){if(window.matchMedia("(max-width:860px)").matches&&$("stage").dataset.view==="guest"){unseen++;$("sbadge").innerHTML=`<span class="badge">${unseen}</span>`}}
+function place(){
+ const lines=M.filter(m=>cart[m.id]);if(!lines.length)return;
+ const s=lines.reduce((a,m)=>a+cart[m.id]*m.p,0);ticket++;
+ const box=$("orders");clearEmpty(box);
+ const d=document.createElement("div");d.className="ticket";
+ d.innerHTML=`<div class="th"><span>Table 4 · #${ticket}</span><span>${time()}</span></div><ul>${lines.map(m=>`<li>${cart[m.id]} × ${esc(m.n.en)}</li>`).join("")}</ul><div class="ft"><span>${s} GEL${lang!=="en"?` · guest language: ${LL[lang]}`:""}</span><button onclick="this.closest('.ticket').remove()">Done</button></div>`;
+ box.prepend(d);nOrders++;sum+=s;$("tot").textContent=`Today in this demo: ${nOrders} order${nOrders>1?"s":""} · ${sum} GEL`;
+ cart={};render();toast(T[lang].sent);bump();
+}
+function svc(k){
+ const lab={call:"Call staff",cutlery:"Plates & cutlery",bill:"Check, please"}[k];
+ const box=$("calls");clearEmpty(box);
+ const d=document.createElement("div");d.className="ticket call";
+ d.innerHTML=`<div class="th"><span>Table 4 · ${lab}</span><span>${time()}</span></div><div class="ft" style="margin-top:.4rem"><span></span><button onclick="this.closest('.ticket').remove()">OK</button></div>`;
+ box.prepend(d);toast(T[lang].called);bump();
+}
+function view(v){$("stage").dataset.view=v;$("tg").classList.toggle("on",v==="guest");$("ts").classList.toggle("on",v==="staff");if(v==="staff"){unseen=0;$("sbadge").innerHTML=""}}
+render();
+</script>
+</body></html>
