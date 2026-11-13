@@ -1,0 +1,417 @@
+[
+ {
+  "file": "beef-roll-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/beef-roll-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "beef-roll-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/beef-roll-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "beef-roll-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/beef-roll-3.jpg",
+  "type": "food"
+ },
+ {
+  "file": "beef-roll-4.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/beef-roll-4.jpg",
+  "type": "food"
+ },
+ {
+  "file": "beef-roll-5.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/beef-roll-5.jpg",
+  "type": "food"
+ },
+ {
+  "file": "beef-sushi-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/beef-sushi-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "beef-sushi-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/beef-sushi-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "beef-sushi-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/beef-sushi-3.jpg",
+  "type": "food"
+ },
+ {
+  "file": "brunch-plate.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/brunch-plate.jpg",
+  "type": "food"
+ },
+ {
+  "file": "california-roll.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/california-roll.jpg",
+  "type": "food"
+ },
+ {
+  "file": "caprese-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/caprese-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "chicken-omurice-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/chicken-omurice-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "city-view-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/city-view-1.jpg",
+  "type": "city"
+ },
+ {
+  "file": "city-view-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/city-view-2.jpg",
+  "type": "city"
+ },
+ {
+  "file": "city-view-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/city-view-3.jpg",
+  "type": "city"
+ },
+ {
+  "file": "city-view-4.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/city-view-4.jpg",
+  "type": "city"
+ },
+ {
+  "file": "city-view-5.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/city-view-5.jpg",
+  "type": "city"
+ },
+ {
+  "file": "cream-omurice.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/cream-omurice.jpg",
+  "type": "food"
+ },
+ {
+  "file": "cream-soup.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/cream-soup.jpg",
+  "type": "food"
+ },
+ {
+  "file": "curry-omurice-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/curry-omurice-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "curry-omurice-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/curry-omurice-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "curry-omurice-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/curry-omurice-3.jpg",
+  "type": "food"
+ },
+ {
+  "file": "georgian-wine.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/georgian-wine.jpg",
+  "type": "food"
+ },
+ {
+  "file": "happy-hour-board.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/happy-hour-board.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "hub-front-evening.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/hub-front-evening.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "hub-front-night.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/hub-front-night.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "hub-inside-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/hub-inside-1.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "hub-inside-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/hub-inside-2.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "hub-inside-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/hub-inside-3.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "hub-manga-wall.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/hub-manga-wall.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "hub-wall-art.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/hub-wall-art.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "japanese-whisky.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/japanese-whisky.jpg",
+  "type": "food"
+ },
+ {
+  "file": "khachapuri-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/khachapuri-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "khinkali-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/khinkali-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "khinkali-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/khinkali-3.jpg",
+  "type": "food"
+ },
+ {
+  "file": "khinkali-4.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/khinkali-4.jpg",
+  "type": "food"
+ },
+ {
+  "file": "kura-river.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/kura-river.jpg",
+  "type": "city"
+ },
+ {
+  "file": "lake-clouds.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/lake-clouds.jpg",
+  "type": "city"
+ },
+ {
+  "file": "lunch-line-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/lunch-line-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "lunch-line-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/lunch-line-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "menu-spread-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/menu-spread-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "menu-spread-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/menu-spread-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "menu-spread-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/menu-spread-3.jpg",
+  "type": "food"
+ },
+ {
+  "file": "metekhi-night.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/metekhi-night.jpg",
+  "type": "city"
+ },
+ {
+  "file": "napolitan-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/napolitan-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "napolitan-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/napolitan-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "oldtown-roofs-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/oldtown-roofs-1.jpg",
+  "type": "city"
+ },
+ {
+  "file": "oldtown-roofs-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/oldtown-roofs-2.jpg",
+  "type": "city"
+ },
+ {
+  "file": "omelette-plate.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omelette-plate.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-cheese.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-cheese.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-curry-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-curry-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-demi-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-demi-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-demi-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-demi-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-ketchup-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-ketchup-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-ketchup.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-ketchup.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-salad-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-salad-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-tomato-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-tomato-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-tomato-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-tomato-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-tomato-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-tomato-3.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-tomato-4.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-tomato-4.jpg",
+  "type": "food"
+ },
+ {
+  "file": "omurice-tomato-5.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/omurice-tomato-5.jpg",
+  "type": "food"
+ },
+ {
+  "file": "pool-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/pool-1.jpg",
+  "type": "city"
+ },
+ {
+  "file": "pool-drink-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/pool-drink-2.jpg",
+  "type": "city"
+ },
+ {
+  "file": "ramen-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/ramen-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "ramen-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/ramen-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "ramen-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/ramen-3.jpg",
+  "type": "food"
+ },
+ {
+  "file": "rice-bowl.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/rice-bowl.jpg",
+  "type": "food"
+ },
+ {
+  "file": "roast-beef.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/roast-beef.jpg",
+  "type": "food"
+ },
+ {
+  "file": "saburtalo-towers.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/saburtalo-towers.jpg",
+  "type": "city"
+ },
+ {
+  "file": "salmon-plate.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/salmon-plate.jpg",
+  "type": "food"
+ },
+ {
+  "file": "shop-door.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/shop-door.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "shop-front-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/shop-front-2.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "shop-street.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/shop-street.jpg",
+  "type": "city"
+ },
+ {
+  "file": "street-saburtalo.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/street-saburtalo.jpg",
+  "type": "city"
+ },
+ {
+  "file": "sushi-rolls-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/sushi-rolls-1.jpg",
+  "type": "food"
+ },
+ {
+  "file": "sushi-rolls-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/sushi-rolls-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "sushi-rolls-3.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/sushi-rolls-3.jpg",
+  "type": "food"
+ },
+ {
+  "file": "tbilisi-street.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/tbilisi-street.jpg",
+  "type": "city"
+ },
+ {
+  "file": "tempura-roll-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/tempura-roll-2.jpg",
+  "type": "food"
+ },
+ {
+  "file": "tempura-roll.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/tempura-roll.jpg",
+  "type": "food"
+ },
+ {
+  "file": "tomato-soup.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/tomato-soup.jpg",
+  "type": "food"
+ },
+ {
+  "file": "wood-signs-1.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/wood-signs-1.jpg",
+  "type": "shop"
+ },
+ {
+  "file": "wood-signs-2.jpg",
+  "url": "https://tbilisi.omeletrice.com/img/pool/wood-signs-2.jpg",
+  "type": "shop"
+ }
+]
