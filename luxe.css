@@ -234,3 +234,19 @@ body.lux .cta p{color:#FFE9EE!important}
 body.lux .cta .btn-gold{background:#fff!important;color:#9E4F66!important;border-color:#fff!important}
 body.lux .band::before{background:linear-gradient(180deg,rgba(120,50,72,.45),rgba(70,28,44,.6))!important}
 body.lux .soft{background:#F9E3E9!important}
+
+/* ---------- v3 (2026-11-24): softer, easier-to-read type ----------
+   Bodoni looked sharp/angular on phones and the thin italic prices
+   were hard to read. Headlines use Cormorant; every number and price
+   uses Jost with straight (lining) figures. */
+:root{--lx-serif:"Cormorant Garamond","Shippori Mincho","Noto Serif JP",Georgia,serif;--lx-num:"Jost","Noto Sans JP",system-ui,sans-serif}
+body.lux h1,body.lux h2,body.lux h3,body.re h1,body.re h2,body.re h3,body.re .re-logo{font-family:var(--lx-serif)!important;font-weight:500!important}
+body.lux .hero h1,body.re .hero2 h1{font-weight:500!important;letter-spacing:-.01em!important}
+body.re .pc-price,body.lux .card .price,body.lux .price,body.re .stats b,body.re .why .n,body.re .steps2 b,body.re .steps2 .n,body.lux .steps li::before{
+  font-family:var(--lx-num)!important;font-style:normal!important;font-weight:400!important;
+  font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1;letter-spacing:.01em!important}
+body.re .pc-price{font-size:1.45rem!important}
+body.lux .card .price{font-size:2.3rem!important}
+body.re .stats b{font-size:2.4rem!important;font-weight:300!important}
+body.re .stats span,body.re .stats small{word-break:keep-all;line-height:1.7}
+body.lux .pkg .price{font-size:clamp(1.35rem,5.4vw,1.9rem)!important;line-height:1.3;overflow-wrap:anywhere}
