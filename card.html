@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kyohei Mikami | Omurice Land Tbilisi</title>
-<meta name="description" content="Kyohei Mikami, Japanese chef in Tbilisi. Omurice Land at Japan Food Hub, weddings in Georgia, moving and company setup, real estate.">
+<title>Kyohei Mikami | OMURICELAND LLC</title>
+<meta name="description" content="Kyohei Mikami, OMURICELAND LLC, Tbilisi. Real estate rentals and sales, Omurice Land at Japan Food Hub, weddings, moving and company setup.">
 <meta property="og:title" content="Kyohei Mikami | Omurice Land Tbilisi">
-<meta property="og:description" content="Japanese chef in Tbilisi. Food, weddings, moving and real estate in Georgia.">
+<meta property="og:description" content="Real estate rentals and sales, Japanese restaurant, weddings and moving support in Georgia.">
 <meta property="og:image" content="https://tbilisi.omeletrice.com/img/card/kyohei.jpg">
 <meta property="og:url" content="https://tbilisi.omeletrice.com/card.html">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Noto+Sans+JP:wght@500&display=swap">
@@ -65,6 +65,8 @@ li span{font-size:13.5px;color:var(--grey)}
 .foot a{color:var(--char);font-weight:600;text-decoration:none}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--char);color:#fff;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600}
 @media (max-width:360px){.top{grid-template-columns:1fr}}
+.ask{margin:-8px 0 0;font-size:14.5px;color:var(--grey);text-wrap:pretty}
+.ask b{color:var(--char)}
 .save{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:999px;border:2px solid var(--char);color:var(--char);text-decoration:none;font-weight:700;font-size:15.5px;margin-top:-10px}
 html,body{margin:0}
 [hidden]{display:none!important}
@@ -83,7 +85,8 @@ img{max-width:100%}
     </div>
   </section>
 
-  <p class="intro">I cook <em>omurice</em> at Japan Food Hub, and I help people <em>do business in Georgia</em>.</p>
+  <p class="intro">I'm Japanese. I run a restaurant at Japan Food Hub and do <em>real estate rentals and sales</em> in Tbilisi.</p>
+  <p class="ask">Want to <b>rent out, sell, buy or rent</b> a property? Message me. I find tenants and buyers, translate, check contracts and help after move-in.</p>
 
   <a class="wa" id="waLink" href="https://wa.me/819087080598" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4.1A8 8 0 1 1 20 11.6z"/><path d="M9 9.5c.3 2 2.2 4 4.4 4.6l1.1-1 1.6.8c-.2.9-1 1.5-1.9 1.4C11 15 8.6 12.5 8.3 9.4c0-.9.6-1.6 1.4-1.8l.8 1.6z"/></svg>
@@ -104,15 +107,16 @@ img{max-width:100%}
   <section>
     <h2>Talk to me about</h2>
     <ul>
+      <li><img src="img/card/towers.jpg" alt="New residential towers in Tbilisi"><div><b>Real estate: rent &amp; sale</b><span>Tenants for owners, flats for renters, buyers and sellers, new projects in Tbilisi and Batumi</span></div></li>
       <li><img src="img/card/hub.jpg" alt="Japan Food Hub at night"><div><b>Japanese food &amp; group dinners</b><span>Parties and tour groups up to 50 people</span></div></li>
       <li><img src="img/card/wedding.jpg" alt="Wedding ceremony in Kakheti"><div><b>Weddings in Georgia</b><span>Tbilisi, Kakheti and Batumi venues</span></div></li>
       <li><img src="img/card/friends.jpg" alt="Friends and team at Japan Food Hub, Tbilisi"><div><b>Moving &amp; opening a company</b><span>Company, bank account, permits</span></div></li>
-      <li><img src="img/card/towers.jpg" alt="New residential towers in Tbilisi"><div><b>Real estate</b><span>Tbilisi projects and agent partnerships</span></div></li>
     </ul>
   </section>
 
   <footer class="foot">
-    <span>Director, OMURICELAND LLC</span>
+    <span>Director, OMURICELAND LLC (registered in Georgia)</span>
+    <span>Bank: TBC Bank</span>
     <a href="https://www.instagram.com/omeletland.tbilisi/" target="_blank" rel="noopener">@omeletland.tbilisi</a>
     <a href="https://www.instagram.com/georgia.weddings.tbilisi/" target="_blank" rel="noopener">@georgia.weddings.tbilisi</a>
   </footer>
@@ -123,7 +127,7 @@ img{max-width:100%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 (function(){
-  var url = "https://wa.me/819087080598?text=" + encodeURIComponent("Hi Kyohei, nice to meet you! (Realty Forum Tbilisi)");
+  var url = "https://wa.me/819087080598?text=" + encodeURIComponent("Hi Kyohei, nice to meet you!");
   document.getElementById("waLink").href = url;
   try { new QRCode(document.getElementById("qr"), {text:"https://tbilisi.omeletrice.com/card.html", width:124, height:124, colorDark:"#22201b", colorLight:"#ffffff", correctLevel:QRCode.CorrectLevel.M}); }
   catch(e){ document.getElementById("qr").textContent = "wa.me/819087080598"; }
