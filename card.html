@@ -50,15 +50,22 @@ h1{font-family:var(--head);font-weight:800;font-size:34px;line-height:.98;margin
 .dish figcaption b{color:var(--char)}
 h2{font-size:13px;font-weight:700;margin:0 0 2px;color:var(--grey)}
 ul{list-style:none;margin:0;padding:0}
-li{padding:12px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:64px 1fr;gap:2px 14px;align-items:center}
-li>div{min-width:0;display:grid;gap:1px}
-li img{width:64px;height:64px;max-width:100%;border-radius:12px;object-fit:cover;display:block;grid-row:span 2}
+li{border-top:1px solid var(--rule)}
+.row{padding:12px 0;display:grid;grid-template-columns:64px 1fr auto;gap:2px 14px;align-items:center;color:inherit;text-decoration:none}
+.row i{font-style:normal;font-weight:700;color:var(--egg);font-size:18px}
+[dir=rtl] .row i{transform:scaleX(-1)}
+.row:focus-visible{outline:3px solid var(--egg);outline-offset:2px;border-radius:12px}
+.langs{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.langs button{border:1px solid var(--rule);background:#fff;border-radius:999px;padding:6px 11px;font:600 13px var(--body);color:var(--char);cursor:pointer}
+.langs button[aria-pressed=true]{background:var(--char);color:#fff;border-color:var(--char)}
+li .row>div{min-width:0;display:grid;gap:1px}
+li .row>img{width:64px;height:64px;max-width:100%;border-radius:12px;object-fit:cover;display:block;grid-row:span 2}
 img.zoom{cursor:zoom-in}
 .lb{position:fixed;inset:0;z-index:20;background:rgba(20,18,14,.92);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));cursor:zoom-out}
 .lb img{max-width:100%;max-height:86vh;width:auto;height:auto;border-radius:10px;display:block}
 .lb p{color:#fff;font-size:13px;margin:10px 0 0;text-align:center}
 .lb button{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:#22201b;font:700 20px var(--body);cursor:pointer}
-li .ph{width:64px;height:64px;border-radius:12px;background:var(--egg-soft);display:grid;place-items:center;font:700 22px var(--jp);color:var(--egg)}
+li .row>.ph{grid-row:span 2;width:64px;height:64px;border-radius:12px;background:var(--egg-soft);display:grid;place-items:center;font:700 22px var(--jp);color:var(--egg)}
 li b{font-size:16px;font-weight:700}
 li span{font-size:13.5px;color:var(--grey)}
 .foot{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--grey);padding-top:12px;border-top:1px solid var(--rule)}
@@ -82,53 +89,64 @@ img{max-width:100%}
 <body>
 
 <main class="card">
+  <nav class="langs" aria-label="Language">
+    <button type="button" data-l="en">EN</button><button type="button" data-l="ka">ქარ</button><button type="button" data-l="ru">RU</button><button type="button" data-l="ja">日本語</button><button type="button" data-l="hi">हिं</button><button type="button" data-l="ar">عربي</button>
+  </nav>
   <section class="top">
     <div class="pic"><img src="img/card/kyohei.jpg" alt="Kyohei Mikami"></div>
     <div>
       <h1>Kyohei<br>Mikami</h1>
       <div class="jp">三上 恭平</div>
-      <div class="where">Tbilisi, Georgia</div>
+      <div class="where" data-t="where">Tbilisi, Georgia</div>
     </div>
   </section>
 
-  <p class="intro">I'm Japanese. I run a restaurant at Japan Food Hub and do <em>real estate rentals and sales</em> in Tbilisi.</p>
-  <p class="ask">Want to <b>rent out, sell, buy or rent</b> a property? Message me. I find tenants and buyers, translate, check contracts and help after move-in.</p>
+  <p class="intro" data-t="intro">I'm Japanese. I run a restaurant at Japan Food Hub and do <em>real estate rentals and sales</em> in Tbilisi.</p>
+  <p class="ask" data-t="ask">Want to <b>rent out, sell, buy or rent</b> a property? Message me. I find tenants and buyers, translate, check contracts and help after move-in.</p>
 
   <a class="wa" id="waLink" href="https://wa.me/819087080598" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4.1A8 8 0 1 1 20 11.6z"/><path d="M9 9.5c.3 2 2.2 4 4.4 4.6l1.1-1 1.6.8c-.2.9-1 1.5-1.9 1.4C11 15 8.6 12.5 8.3 9.4c0-.9.6-1.6 1.4-1.8l.8 1.6z"/></svg>
-    Message me on WhatsApp</a>
-  <a class="save" href="kyohei.vcf" download="Kyohei-Mikami.vcf">Save my contact</a>
+    <span data-t="wa">Message me on WhatsApp</span></a>
+  <a class="save" href="kyohei.vcf" download="Kyohei-Mikami.vcf" data-t="save">Save my contact</a>
   <div class="nums">
-    <a href="https://wa.me/819087080598" target="_blank" rel="noopener"><span>WhatsApp</span><b>+81 90 8708 0598</b></a>
-    <a href="tel:+995555320529"><span>Georgia</span><b>+995 555 32 05 29</b></a>
+    <a href="https://wa.me/819087080598" target="_blank" rel="noopener"><span>WhatsApp</span><b dir="ltr">+81 90 8708 0598</b></a>
+    <a href="tel:+995555320529"><span data-t="geo">Georgia</span><b dir="ltr">+995 555 32 05 29</b></a>
   </div>
-  <p class="lang">My English isn't strong, so I talk with a translator app. But I'll work hard for you, in your place.</p>
+  <p class="lang" data-t="lang">My English isn't strong, so I talk with a translator app (6 languages). But I'll work hard for you, in your place.</p>
   <div class="minor"><button type="button" id="copyMail">admin@omeletrice.com</button><a href="https://tbilisi.omeletrice.com" target="_blank" rel="noopener">tbilisi.omeletrice.com</a></div>
 
   <section class="qr">
     <div id="qr" role="img" aria-label="QR code that opens this card"></div>
-    <div><b>Scan to get my card</b><p>Opens this page on your phone, so you can keep it and message me any time.</p></div>
+    <div><b data-t="qrT">Scan to get my card</b><p data-t="qrP">Opens this page on your phone, so you can keep it and message me any time.</p></div>
   </section>
 
   <figure class="dish">
     <img src="img/card/omurice.jpg" alt="Crispy chicken omurice with tomato sauce and basil">
-    <figcaption><b>Omurice Stadium champion 2019.</b> Now serving it at 1 Davit Gamrekeli St.</figcaption>
+    <figcaption data-t="dish"><b>Omurice Stadium champion 2019.</b> Now serving it at 1 Davit Gamrekeli St.</figcaption>
   </figure>
 
   <section>
-    <h2>Talk to me about</h2>
+    <h2 data-t="h2s">Talk to me about</h2>
     <ul>
-      <li><img src="img/card/towers.jpg" alt="New residential towers in Tbilisi"><div><b>Real estate: rent &amp; sale</b><span>Tenants for owners, flats for renters, buyers and sellers, new projects in Tbilisi and Batumi</span></div></li>
-      <li><img src="img/card/hub.jpg" alt="Japan Food Hub at night"><div><b>Japanese food &amp; group dinners</b><span>Parties and tour groups up to 50 people</span></div></li>
-      <li><img src="img/card/wedding.jpg" alt="Wedding ceremony in Kakheti"><div><b>Weddings in Georgia</b><span>Tbilisi, Kakheti and Batumi venues</span></div></li>
-      <li><img src="img/card/friends.jpg" alt="Friends and team at Japan Food Hub, Tbilisi"><div><b>Moving &amp; opening a company</b><span>Company, bank account, permits</span></div></li>
+      <li><a class="row" href="realestate.html"><img src="img/card/towers.jpg" alt="New residential towers in Tbilisi"><div><b data-t="s1t">Real estate: rent &amp; sale</b><span data-t="s1d">Tenants for owners, flats for renters, buyers and sellers, new projects in Tbilisi and Batumi</span></div><i aria-hidden="true">→</i></a></li>
+      <li><a class="row" href="japan-food-hub.html"><img src="img/card/hub.jpg" alt="Japan Food Hub at night"><div><b data-t="s2t">Japanese food &amp; group dinners</b><span data-t="s2d">Parties and tour groups up to 50 people</span></div><i aria-hidden="true">→</i></a></li>
+      <li><a class="row" href="marry-in-tbilisi.html"><img src="img/card/wedding.jpg" alt="Wedding ceremony in Kakheti"><div><b data-t="s3t">Weddings in Georgia</b><span data-t="s3d">Tbilisi, Kakheti and Batumi venues</span></div><i aria-hidden="true">→</i></a></li>
+      <li><a class="row" href="company-setup.html"><img src="img/card/friends.jpg" alt="Friends and team at Japan Food Hub"><div><b data-t="s4t">Moving &amp; opening a company</b><span data-t="s4d">Company, bank account, permits</span></div><i aria-hidden="true">→</i></a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-t="h2d">System development</h2>
+    <ul>
+      <li><a class="row" href="https://talk4.omeletrice.com/" target="_blank" rel="noopener"><div class="ph">訳</div><div><b data-t="d1t">Translator app (Talk4)</b><span data-t="d1d">Real-time voice translation in 6 languages for shops and offices</span></div><i aria-hidden="true">→</i></a></li>
+      <li><a class="row" href="qr-order.html"><img src="img/qr-order-screen.jpg" alt="Mobile order screen on a phone"><div><b data-t="d2t">Mobile order (QR)</b><span data-t="d2d">Customers order from their phone at the table. No app to install</span></div><i aria-hidden="true">→</i></a></li>
     </ul>
   </section>
 
   <footer class="foot">
-    <span>Director, OMURICELAND LLC (registered in Georgia)</span>
-    <span>Office: Japan Food Hub, 1 Davit Gamrekeli St, Tbilisi</span>
-    <span>Bank: TBC Bank</span>
+    <span data-t="f1">Director, OMURICELAND LLC (registered in Georgia)</span>
+    <span data-t="f2">Office: Japan Food Hub, 1 Davit Gamrekeli St, Tbilisi</span>
+    <span data-t="f3">Bank: TBC Bank</span>
     <a href="https://www.instagram.com/omeletland.tbilisi/" target="_blank" rel="noopener">@omeletland.tbilisi</a>
     <a href="https://www.instagram.com/georgia.weddings.tbilisi/" target="_blank" rel="noopener">@georgia.weddings.tbilisi</a>
   </footer>
@@ -139,6 +157,20 @@ img{max-width:100%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 (function(){
+
+  var DICT = {"en": {"where": "Tbilisi, Georgia", "intro": "I'm Japanese. I run a restaurant at Japan Food Hub and do <em>real estate rentals and sales</em> in Tbilisi.", "ask": "Want to <b>rent out, sell, buy or rent</b> a property? Message me. I find tenants and buyers, translate, check contracts and help after move-in.", "wa": "Message me on WhatsApp", "save": "Save my contact", "geo": "Georgia", "lang": "My English isn't strong, so I talk with a translator app (6 languages). But I'll work hard for you, in your place.", "qrT": "Scan to get my card", "qrP": "Opens this page on your phone, so you can keep it and message me any time.", "dish": "<b>Omurice Stadium champion 2019.</b> Now serving it at 1 Davit Gamrekeli St.", "h2s": "Talk to me about", "s1t": "Real estate: rent & sale", "s1d": "Tenants for owners, flats for renters, buyers and sellers, new projects in Tbilisi and Batumi", "s2t": "Japanese food & group dinners", "s2d": "Parties and tour groups up to 50 people", "s3t": "Weddings in Georgia", "s3d": "Tbilisi, Kakheti and Batumi venues", "s4t": "Moving & opening a company", "s4d": "Company, bank account, permits", "h2d": "System development", "d1t": "Translator app (Talk4)", "d1d": "Real-time voice translation in 6 languages for shops and offices", "d2t": "Mobile order (QR)", "d2d": "Customers order from their phone at the table. No app to install", "f1": "Director, OMURICELAND LLC (registered in Georgia)", "f2": "Office: Japan Food Hub, 1 Davit Gamrekeli St, Tbilisi", "f3": "Bank: TBC Bank"}, "ka": {"where": "თბილისი, საქართველო", "intro": "მე იაპონელი ვარ. ვმართავ რესტორანს Japan Food Hub-ში და ვაკეთებ <em>უძრავი ქონების გაქირავებასა და გაყიდვას</em> თბილისში.", "ask": "გსურთ ქონების <b>გაქირავება, გაყიდვა, ყიდვა ან დაქირავება</b>? მომწერეთ. ვპოულობ დამქირავებლებს და მყიდველებს, ვთარგმნი, ვამოწმებ ხელშეკრულებებს და ვეხმარები შესახლების შემდეგაც.", "wa": "მომწერეთ WhatsApp-ში", "save": "კონტაქტის შენახვა", "geo": "საქართველო", "lang": "ინგლისური კარგად არ ვიცი, ამიტომ ვსაუბრობ მთარგმნელი აპლიკაციით (6 ენა). მაგრამ თქვენს ნაცვლად ბევრს ვიმუშავებ.", "qrT": "დაასკანერეთ ვიზიტკისთვის", "qrP": "ეს გვერდი გაიხსნება თქვენს ტელეფონზე — მომწერეთ ნებისმიერ დროს.", "dish": "<b>Omurice Stadium 2019-ის ჩემპიონი.</b> ახლა ვამზადებ დავით გამრეკელის ქ. 1-ში.", "h2s": "რაში დაგეხმარებით", "s1t": "უძრავი ქონება: ქირა და გაყიდვა", "s1d": "დამქირავებლები მესაკუთრეებისთვის, ბინები მოქირავნეებისთვის, მყიდველები და გამყიდველები, ახალი პროექტები თბილისსა და ბათუმში", "s2t": "იაპონური კერძები და ჯგუფური ვახშმები", "s2d": "წვეულებები და ტურისტული ჯგუფები 50 კაცამდე", "s3t": "ქორწილები საქართველოში", "s3d": "თბილისი, კახეთი და ბათუმი", "s4t": "გადმოსვლა და კომპანიის გახსნა", "s4d": "კომპანია, საბანკო ანგარიში, ნებართვები", "h2d": "სისტემების შემუშავება", "d1t": "მთარგმნელი აპლიკაცია (Talk4)", "d1d": "ხმოვანი თარგმანი რეალურ დროში 6 ენაზე მაღაზიებისა და ოფისებისთვის", "d2t": "მობილური შეკვეთა (QR)", "d2d": "სტუმრები უკვეთავენ ტელეფონიდან მაგიდასთან. აპლიკაცია არ სჭირდება", "f1": "დირექტორი, OMURICELAND LLC (რეგისტრირებული საქართველოში)", "f2": "ოფისი: Japan Food Hub, დავით გამრეკელის ქ. 1, თბილისი", "f3": "ბანკი: TBC Bank"}, "ru": {"where": "Тбилиси, Грузия", "intro": "Я из Японии. У меня ресторан в Japan Food Hub, и я занимаюсь <em>арендой и продажей недвижимости</em> в Тбилиси.", "ask": "Хотите <b>сдать, продать, купить или снять</b> недвижимость? Напишите мне. Я нахожу арендаторов и покупателей, перевожу, проверяю договоры и помогаю после заселения.", "wa": "Написать в WhatsApp", "save": "Сохранить контакт", "geo": "Грузия", "lang": "Я плохо говорю по-английски, поэтому общаюсь через приложение-переводчик (6 языков). Но я буду стараться и работать за вас.", "qrT": "Отсканируйте, чтобы получить визитку", "qrP": "Откроет эту страницу на телефоне — пишите мне в любое время.", "dish": "<b>Чемпион Omurice Stadium 2019.</b> Теперь готовлю на ул. Давида Гамрекели, 1.", "h2s": "Чем могу помочь", "s1t": "Недвижимость: аренда и продажа", "s1d": "Арендаторы для владельцев, квартиры для съёмщиков, покупатели и продавцы, новостройки в Тбилиси и Батуми", "s2t": "Японская кухня и групповые ужины", "s2d": "Вечеринки и туристические группы до 50 человек", "s3t": "Свадьбы в Грузии", "s3d": "Тбилиси, Кахетия и Батуми", "s4t": "Переезд и открытие компании", "s4d": "Компания, банковский счёт, разрешения", "h2d": "Разработка систем", "d1t": "Приложение-переводчик (Talk4)", "d1d": "Голосовой перевод в реальном времени на 6 языков для магазинов и офисов", "d2t": "Мобильный заказ (QR)", "d2d": "Гости заказывают с телефона прямо за столом. Без установки приложения", "f1": "Директор, OMURICELAND LLC (зарегистрирована в Грузии)", "f2": "Офис: Japan Food Hub, ул. Давида Гамрекели, 1, Тбилиси", "f3": "Банк: TBC Bank"}, "ja": {"where": "ジョージア・トビリシ", "intro": "日本人です。ジャパンフードハブで飲食店を経営し、トビリシで<em>不動産の賃貸・売買</em>をしています。", "ask": "物件を<b>貸したい・売りたい・買いたい・借りたい</b>方はご連絡ください。借り手・買い手探し、通訳、契約チェック、入居後のサポートまでやります。", "wa": "WhatsAppで連絡する", "save": "連絡先を保存", "geo": "ジョージア", "lang": "英語が苦手なので翻訳アプリ（6か国語）で話します。そのぶん、あなたの代わりに一生懸命働きます。", "qrT": "スキャンで名刺を保存", "qrP": "このページがスマホで開きます。いつでも連絡できます。", "dish": "<b>オムライススタジアム2019 優勝。</b>今はダヴィト・ガムレケリ通り1番地で提供中。", "h2s": "ご相談ください", "s1t": "不動産：賃貸・売買", "s1d": "大家さんへの入居者紹介、部屋探し、売りたい・買いたい人、トビリシ・バトゥミの新築物件", "s2t": "日本食・団体のお食事", "s2d": "パーティー・ツアー団体 50名まで", "s3t": "ジョージアでの結婚式", "s3d": "トビリシ・カヘティ・バトゥミの会場", "s4t": "移住・会社設立", "s4d": "会社設立・銀行口座・各種許可", "h2d": "システム開発", "d1t": "翻訳アプリ（Talk4）", "d1d": "6か国語のリアルタイム音声翻訳。お店や会社で使えます", "d2t": "モバイルオーダー（QR）", "d2d": "お客さんが席でスマホから注文。アプリのインストール不要", "f1": "OMURICELAND LLC 代表（ジョージア登記）", "f2": "事務所：Japan Food Hub（トビリシ、ダヴィト・ガムレケリ通り1）", "f3": "取引銀行：TBC Bank"}, "hi": {"where": "त्बिलिसी, जॉर्जिया", "intro": "मैं जापानी हूँ। Japan Food Hub में मेरा रेस्टोरेंट है और मैं त्बिलिसी में <em>प्रॉपर्टी किराये और बिक्री</em> का काम करता हूँ।", "ask": "क्या आप प्रॉपर्टी <b>किराये पर देना, बेचना, खरीदना या किराये पर लेना</b> चाहते हैं? मुझे मैसेज करें। मैं किरायेदार और खरीदार ढूँढता हूँ, अनुवाद करता हूँ, कॉन्ट्रैक्ट जाँचता हूँ और शिफ्ट होने के बाद भी मदद करता हूँ।", "wa": "WhatsApp पर मैसेज करें", "save": "मेरा कॉन्टैक्ट सेव करें", "geo": "जॉर्जिया", "lang": "मेरी अंग्रेज़ी अच्छी नहीं है, इसलिए मैं ट्रांसलेटर ऐप (6 भाषाएँ) से बात करता हूँ। लेकिन मैं आपकी जगह पूरी मेहनत से काम करूँगा।", "qrT": "मेरा कार्ड पाने के लिए स्कैन करें", "qrP": "यह पेज आपके फ़ोन पर खुलेगा, ताकि आप कभी भी मैसेज कर सकें।", "dish": "<b>Omurice Stadium 2019 चैंपियन।</b> अब 1 Davit Gamrekeli St पर परोस रहा हूँ।", "h2s": "मैं इनमें मदद करता हूँ", "s1t": "प्रॉपर्टी: किराया और बिक्री", "s1d": "मालिकों के लिए किरायेदार, किरायेदारों के लिए फ़्लैट, खरीदार और विक्रेता, त्बिलिसी और बटुमी के नए प्रोजेक्ट", "s2t": "जापानी खाना और ग्रुप डिनर", "s2d": "50 लोगों तक की पार्टी और टूर ग्रुप", "s3t": "जॉर्जिया में शादी", "s3d": "त्बिलिसी, काखेती और बटुमी के वेन्यू", "s4t": "शिफ्ट होना और कंपनी खोलना", "s4d": "कंपनी, बैंक खाता, परमिट", "h2d": "सिस्टम डेवलपमेंट", "d1t": "ट्रांसलेटर ऐप (Talk4)", "d1d": "दुकानों और ऑफिस के लिए 6 भाषाओं में रियल-टाइम वॉइस ट्रांसलेशन", "d2t": "मोबाइल ऑर्डर (QR)", "d2d": "ग्राहक टेबल पर अपने फ़ोन से ऑर्डर करते हैं। कोई ऐप इंस्टॉल नहीं", "f1": "डायरेक्टर, OMURICELAND LLC (जॉर्जिया में रजिस्टर्ड)", "f2": "ऑफिस: Japan Food Hub, 1 Davit Gamrekeli St, त्बिलिसी", "f3": "बैंक: TBC Bank"}, "ar": {"where": "تبليسي، جورجيا", "intro": "أنا ياباني. أدير مطعمًا في Japan Food Hub وأعمل في <em>تأجير وبيع العقارات</em> في تبليسي.", "ask": "هل تريد <b>تأجير أو بيع أو شراء أو استئجار</b> عقار؟ راسلني. أجد المستأجرين والمشترين، وأترجم، وأراجع العقود، وأساعد بعد الانتقال.", "wa": "راسلني على واتساب", "save": "احفظ جهة الاتصال", "geo": "جورجيا", "lang": "لغتي الإنجليزية ليست قوية، لذلك أتحدث عبر تطبيق ترجمة (6 لغات). لكنني سأعمل بجد نيابةً عنك.", "qrT": "امسح للحصول على بطاقتي", "qrP": "تفتح هذه الصفحة على هاتفك لتراسلني في أي وقت.", "dish": "<b>بطل Omurice Stadium 2019.</b> أقدّمه الآن في 1 شارع داويت غامريكيلي.", "h2s": "يمكنني مساعدتك في", "s1t": "العقارات: إيجار وبيع", "s1d": "مستأجرون للملاك، شقق للمستأجرين، مشترون وبائعون، مشاريع جديدة في تبليسي وباتومي", "s2t": "طعام ياباني وعشاء للمجموعات", "s2d": "حفلات ومجموعات سياحية حتى 50 شخصًا", "s3t": "حفلات الزفاف في جورجيا", "s3d": "قاعات في تبليسي وكاخيتي وباتومي", "s4t": "الانتقال وتأسيس شركة", "s4d": "شركة، حساب بنكي، تصاريح", "h2d": "تطوير الأنظمة", "d1t": "تطبيق الترجمة (Talk4)", "d1d": "ترجمة صوتية فورية بـ6 لغات للمتاجر والمكاتب", "d2t": "الطلب عبر الجوال (QR)", "d2d": "يطلب الزبائن من هواتفهم على الطاولة دون تثبيت تطبيق", "f1": "مدير، OMURICELAND LLC (مسجلة في جورجيا)", "f2": "المكتب: Japan Food Hub، 1 شارع داويت غامريكيلي، تبليسي", "f3": "البنك: TBC Bank"}};
+  function setLang(l){
+    if(!DICT[l]) l="en";
+    document.documentElement.lang=l; document.documentElement.dir=(l==="ar")?"rtl":"ltr";
+    document.querySelectorAll("[data-t]").forEach(function(el){ var v=DICT[l][el.getAttribute("data-t")]; if(v!=null) el.innerHTML=v; });
+    document.querySelectorAll(".langs button").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-l")===l ? "true":"false"); });
+    try{ localStorage.setItem("cardLang", l); }catch(e){}
+  }
+  document.querySelectorAll(".langs button").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.getAttribute("data-l")); }); });
+  var start="en";
+  try{ var q=new URLSearchParams(location.search).get("lang"); var st=localStorage.getItem("cardLang"); var nav=(navigator.language||"en").slice(0,2);
+    start = q || st || (DICT[nav] ? nav : "en"); }catch(e){}
+  setLang(start);
   var url = "https://wa.me/819087080598?text=" + encodeURIComponent("Hi Kyohei, nice to meet you!");
   document.getElementById("waLink").href = url;
   try { new QRCode(document.getElementById("qr"), {text:"https://tbilisi.omeletrice.com/card.html", width:124, height:124, colorDark:"#22201b", colorLight:"#ffffff", correctLevel:QRCode.CorrectLevel.M}); }
@@ -150,7 +182,7 @@ img{max-width:100%}
     try { navigator.clipboard.writeText(b.textContent).then(function(){ show("Email copied"); }, fb); } catch(e){ fb(); }
   });
   var lb=document.getElementById("lb"), li=document.getElementById("lbImg"), lc=document.getElementById("lbCap");
-  document.querySelectorAll(".pic img, .dish img, li img").forEach(function(im){
+  document.querySelectorAll(".pic img, .dish img").forEach(function(im){
     im.classList.add("zoom"); im.tabIndex=0;
     var open=function(){ li.src=im.src; li.alt=im.alt; lc.textContent=im.alt; lb.hidden=false; };
     im.addEventListener("click",open);
