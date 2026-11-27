@@ -189,3 +189,13 @@ html[lang="ja"] .card .price{font-family:"Cormorant Garamond",var(--serif-ja)}
 .big3 b{display:block;font-family:var(--serif);font-size:3rem;font-weight:500;color:var(--ochre-soft);line-height:1}
 .big3 span{color:#D9CFC2;font-size:.92rem}
 @media(max-width:700px){.big3{grid-template-columns:1fr}}
+
+.card .pcount{position:absolute;right:12px;bottom:12px;background:rgba(251,250,247,.92);color:var(--walnut);border:0;border-radius:999px;padding:.35rem .8rem;font:500 .78rem var(--sans);cursor:pointer}
+.card .pcount:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+.card .ph img{cursor:zoom-in}
+.lbox{position:fixed;inset:0;z-index:100;background:rgba(27,23,20,.94);display:flex;align-items:center;justify-content:center}
+.lbox[hidden]{display:none}
+.lbox img{max-width:92vw;max-height:84vh;object-fit:contain}
+.lbox button{position:absolute;background:none;border:0;color:var(--paper);font:300 2.6rem/1 var(--serif);cursor:pointer;padding:.6rem 1rem}
+.lbox .x{top:10px;right:10px}.lbox .pv{left:4px;top:50%;transform:translateY(-50%)}.lbox .nx{right:4px;top:50%;transform:translateY(-50%)}
+.lbox .n{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:var(--ochre-soft);font:400 .85rem var(--sans)}
