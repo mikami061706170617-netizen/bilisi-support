@@ -101,7 +101,7 @@ window.LISTINGS = [
    price:{en:"$2,000,000",ja:"$2,000,000"},unit:{en:"operating hotel",ja:"営業中のホテル"},pmin:2000000,
    text:{en:"A working hotel on the Black Sea coast. Investor pack available.",ja:"黒海沿いで営業中のホテル。投資家向け資料あり。"},chips:{en:["Investment"],ja:["投資向け"]}},
   /* ---------- Rentals (monthly) ---------- */
-  {id:"r-marj",kind:"rent",city:"tbilisi",lat:41.7108,lng:44.7966,img:"",
+  {id:"r-marj",kind:"rent",city:"tbilisi",lat:41.7108,lng:44.7966,img:"img/realestate/p/r-marj-1.jpg",gallery:["img/realestate/p/r-marj-1.jpg", "img/realestate/p/r-marj-2.jpg", "img/realestate/p/r-marj-3.jpg", "img/realestate/p/r-marj-4.jpg", "img/realestate/p/r-marj-5.jpg", "img/realestate/p/r-marj-6.jpg", "img/realestate/p/r-marj-7.jpg", "img/realestate/p/r-marj-8.jpg", "img/realestate/p/r-marj-9.jpg"],
    name:{en:"2-bedroom",ja:"2LDK"},area:{en:"Marjanishvili",ja:"マルジャニシヴィリ"},
    price:{en:"$650",ja:"$650"},unit:{en:"/ month · 60 m²",ja:"/月・60㎡"},pmin:650,
    text:{en:"Six minutes to the metro. 1-year lease, bills separate.",ja:"地下鉄まで徒歩6分。1年契約、光熱費別。"},chips:{en:["1 year"],ja:["1年契約"]}},
