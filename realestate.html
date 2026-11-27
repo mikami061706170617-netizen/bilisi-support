@@ -147,6 +147,17 @@ body.re{background:var(--sand);color:var(--ink);font-family:'Noto Sans JP',syste
 .mini .r span:last-child{font-weight:700;color:var(--terra)}
 .partner{margin:1.6rem 0 0;font-size:.88rem;color:var(--mute);line-height:1.8}
 .disc{max-width:1180px;margin:3rem auto 0;padding:0 1rem;font-size:.8rem;color:var(--mute);line-height:1.8}
+.ptn{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.ptn div{border:1px solid #E2E3E5;padding:1.1rem 1.2rem;background:#fff}
+.ptn h4{margin:0 0 .2rem;font-size:1.02rem}.ptn .t{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:700}
+.ptn p{margin:.4rem 0 0;font-size:.86rem;color:var(--mute);line-height:1.7}
+.tour{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:start}
+.tour ol{margin:0;padding:0;list-style:none}.tour ol li{border-top:2px solid var(--ink);padding:.9rem 0 1rem}
+.tour ol li b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--terra);font-weight:600}
+.tour ol li p{margin:.2rem 0 0;font-size:.9rem;line-height:1.75}
+.tour .card{background:#F6F2EA;padding:1.4rem 1.5rem}.tour .card ul{margin:.5rem 0 1rem;padding-left:1.1rem;font-size:.9rem;line-height:1.8}
+.tbtn{display:flex;gap:.6rem;flex-wrap:wrap}.tbtn a{color:#fff!important;text-decoration:none;font-weight:700;padding:0 1.2rem;min-height:46px;display:inline-flex;align-items:center;border-radius:2px}
+@media(max-width:900px){.ptn{grid-template-columns:1fr 1fr}.tour{grid-template-columns:1fr}}@media(max-width:520px){.ptn{grid-template-columns:1fr}}
 .steps2{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;counter-reset:s}
 .steps2 div{border-top:2px solid var(--ink);padding-top:1rem;counter-increment:s}
 .steps2 div::before{content:"0" counter(s);font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--terra);display:block;line-height:1}
@@ -189,7 +200,7 @@ body.re footer{background:var(--sand)}
 </head>
 <body class="re">
 <nav class="re-nav"><div class="in"><a class="re-logo" href="/realestate.html">Kyohei · Georgia Estates</a>
-<div class="links"><a href="#tbilisi">Tbilisi</a><a href="#batumi">Batumi</a><a href="#kakheti">Kakheti</a><a href="#how">How it works</a></div>
+<div class="links"><a href="#tbilisi">Tbilisi</a><a href="#batumi">Batumi</a><a href="#kakheti">Kakheti</a><a href="#partners">Partners</a><a href="#tour">Property tour</a><a href="#how">How it works</a></div>
 <a class="wa-s" href="https://wa.me/819087080598?text=Hello%20Kyohei%2C%20I%27m%20interested%20in%20Georgian%20real%20estate.">WhatsApp</a></div></nav>
 <header class="hero2"><img src="img/realestate/deka-lisi-dusk.jpg" alt="DEKA Lisi, Tbilisi — pool and gardens (rendering)"><span class="cap">DEKA Lisi · developer rendering</span>
 <div class="in"><div class="eyebrow">Tbilisi · Batumi · Kakheti</div>
@@ -254,6 +265,33 @@ body.re footer{background:var(--sand)}
 <section class="sec2" id="kakheti"><div class="kick">Wine country</div><h2>Kakheti</h2><p class="h2ja">カヘティ ― ワインの里のヴィラ</p>
 <div class="pgrid"><article class="pc"><div class="pc-img"><img src="img/realestate/schuchmann.jpg" alt="Schuchmann Wine Villas — rendering" loading="lazy"><span class="pc-area">Telavi · Kakheti</span></div>
 <div class="pc-body"><h3>Schuchmann Wine Villas</h3><div class="pc-price">On request</div><ul class="chips"><li>Your own 600 m² vineyard</li><li>Your own wine label</li><li>Spa · Pools</li></ul><p class="ja">ワインの里カヘティで、自分のブドウ畑つきのヴィラを。自分のラベルのワインも作れます。</p><p class="en">Own a villa with your own vineyard in Georgia's wine country, and bottle wine under your own label.</p></div></article></div></section>
+
+<section class="sec2" id="partners"><div class="kick">Partners</div><h2>Our partner agencies</h2><p class="h2ja">提携している不動産会社 ― 1社だけでなく、複数の会社の物件をまとめてご案内します</p>
+<div class="ptn">
+<div><span class="t">Premium · Tbilisi</span><h4>Immobiliare</h4><p>ヴァケ・中心部の高級レジデンス（Kostava 49 など）。1㎡ $4,300〜、ご家族の住まいや資産の分散に。<br>Luxury residences in central Tbilisi, from about $4,300/m².</p></div>
+<div><span class="t">New-build · Tbilisi</span><h4>Tbilisi Acres</h4><p>ヴァケとサブルタロの間に生まれる62haの新しい街。正式な販売代理店契約を結んでいます。<br>A new 62 ha town between Vake and Saburtalo. Official sales-agent agreement signed.</p></div>
+<div><span class="t">New-build · Tbilisi</span><h4>DEKA (GTC Holding &amp; Anagi)</h4><p>リシ湖・グルダニ・ヴァルケティリの新築。頭金0%・分割払いの物件もあります。<br>Lisi, Gldani and Varketili, with 0% down options.</p></div>
+<div><span class="t">Investment · Tbilisi</span><h4>BD Club</h4><p>投資用の新築・中古を多数扱う会社。利回り重視の方に。<br>Wide range of investment units.</p></div>
+<div><span class="t">Resale · Tbilisi</span><h4>Tbilisi Property</h4><p>中古・すぐ住める物件。$8万〜のディディ・ディゴミから、ヴァケ・サブルタロまで。<br>Ready-to-move resale flats across the city.</p></div>
+<div><span class="t">Japan</span><h4>AIマネー大学株式会社</h4><p>日本の販売代理店。バトゥミの Silk Towers（隈研吾建築都市設計事務所がマスターデザイン）なども。<br>Our Japanese sales partner.</p></div>
+</div>
+<p class="partner">ご購入は、各社と同じ価格でご案内します。仲介の手数料は開発会社・売主からいただくため、買う方に追加の費用はかかりません（中古物件など一部を除く）。<br><span class="en">Buyers pay the same price as buying direct; our fee is paid by the developer or seller (except some resale deals).</span></p></section>
+
+<section class="sec2" id="tour"><div class="kick">See it yourself</div><h2>Georgia property tour</h2><p class="h2ja">ジョージア不動産 現地視察ツアー ― 見て、比べて、決める3日間</p>
+<div class="tour"><ol>
+<li><b>Day 1</b><p>空港でお迎え。トビリシの街とエリアの違い（ヴァケ・サブルタロ・ディゴミ・旧市街）を車で案内。夜は Japan Food Hub で夕食と、ご予算・目的の確認。<br><span class="en">Airport pickup, a drive through the main districts, dinner at our restaurant.</span></p></li>
+<li><b>Day 2</b><p>提携各社の現場とモデルルームを1日で回ります（新築・高級・中古を比較）。開発会社の担当者から直接説明、通訳つき。<br><span class="en">Site and showroom visits with our partner developers, interpreted.</span></p></li>
+<li><b>Day 3</b><p>銀行口座の開設、会社づくり・賃貸管理のご相談。ご希望でカヘティのワインヴィラ、バトゥミへの延長も。<br><span class="en">Bank account, company setup and rental management. Optional Kakheti or Batumi extension.</span></p></li>
+</ol>
+<div class="card"><div class="kick">Details</div><ul>
+<li>少人数（2〜6名）・ご希望の日程で開催</li>
+<li>日本語・英語でご案内（トビリシ在住の日本人が同行）</li>
+<li>空港送迎・視察中の移動・通訳つき</li>
+<li>航空券・ホテル代は各自のご負担</li>
+<li>来られない方はビデオ通話での「オンライン視察」も</li>
+</ul><p style="font-size:.88rem;margin:0 0 1rem">日程・料金は人数と回る物件で変わるので、まずはご希望の時期とご予算をお送りください。<br><span class="en">Small groups, on your dates. Send us your dates and budget for the plan and fee.</span></p>
+<div class="tbtn"><a style="background:#25D366" href="https://wa.me/819087080598?text=Hello%20Kyohei%2C%20I%27d%20like%20to%20join%20the%20Georgia%20property%20tour.">WhatsApp</a><a style="background:#06C755" href="https://line.me/R/ti/p/@aloha0154659894">LINE（日本語）</a></div></div>
+</div></section>
 
 <section class="sec2" id="how"><div class="kick">Process</div><h2>How it works</h2><p class="h2ja">ご相談から購入まで</p>
 <div class="steps2">
