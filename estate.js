@@ -22,8 +22,8 @@
   var list=document.getElementById('list');if(!list||!window.LISTINGS)return;
   var L=window.LISTINGS,state={kind:'buy',city:'all',budget:'all'},map=null,markers={};
   var T={
-    en:{new:'New build',resale:'For sale',rent:'For rent',more:'Details',ask:'Ask about this',photos:'Photos on request',none:'Nothing matches yet. Tell us what you need and we will look for you.',count:function(n){return n+(n===1?' property':' properties')}},
-    ja:{new:'新築',resale:'売り物件',rent:'賃貸',more:'詳しく見る',ask:'この物件について聞く',photos:'写真はご案内時に',none:'条件に合う物件がまだありません。ご希望を送っていただければお探しします。',count:function(n){return n+'件'}}
+    en:{new:'New build',resale:'For sale',rent:'For rent',more:'Details',ask:'Ask about this',photos:'Photos on request',pics:function(n){return n+' photos'},none:'Nothing matches yet. Tell us what you need and we will look for you.',count:function(n){return n+(n===1?' property':' properties')}},
+    ja:{new:'新築',resale:'売り物件',rent:'賃貸',more:'詳しく見る',ask:'この物件について聞く',photos:'写真はご案内時に',pics:function(n){return '写真'+n+'枚'},none:'条件に合う物件がまだありません。ご希望を送っていただければお探しします。',count:function(n){return n+'件'}}
   };
   var budgets={buy:[['all',{en:'Any budget',ja:'予算指定なし'}],['100000',{en:'Up to $100k',ja:'10万ドルまで'}],['300000',{en:'Up to $300k',ja:'30万ドルまで'}],['1000000',{en:'Up to $1M',ja:'100万ドルまで'}],['big',{en:'$1M and above',ja:'100万ドル以上'}]],
                rent:[['all',{en:'Any budget',ja:'予算指定なし'}],['500',{en:'Up to $500',ja:'$500まで'}],['800',{en:'Up to $800',ja:'$800まで'}],['1500',{en:'Up to $1,500',ja:'$1,500まで'}],['big',{en:'$1,500 and above',ja:'$1,500以上'}]]};
@@ -50,7 +50,8 @@
       a.href=i.link?i.link:wa(i,l);if(!i.link){a.target='_blank';a.rel='noopener'}
       var ph=i.img?'<div class="arch"><img src="'+i.img+'" alt="'+tx(i.name,l)+'" loading="lazy"></div>'
                   :'<div class="arch noimg">'+tx(i.area,l)+'<br><small style="font-family:var(--sans);font-size:.75rem;opacity:.8">'+t.photos+'</small></div>';
-      a.innerHTML='<div class="ph">'+ph+'<span class="tag '+(i.kind==='rent'?'rent':'')+'">'+t[i.kind]+'</span></div>'+
+      var g=i.gallery||[];
+      a.innerHTML='<div class="ph">'+ph+'<span class="tag '+(i.kind==='rent'?'rent':'')+'">'+t[i.kind]+'</span>'+(g.length>1?'<button type="button" class="pcount" data-g="'+i.id+'">'+t.pics(g.length)+'</button>':'')+'</div>'+
         '<div class="b"><span class="where">'+tx(i.area,l)+'</span><span class="h-m">'+tx(i.name,l)+'</span>'+
         '<span class="price">'+tx(i.price,l)+'<small>'+tx(i.unit,l)+'</small></span><p>'+tx(i.text,l)+'</p>'+
         '<span class="chips">'+(i.chips?i.chips[l]:[]).map(function(c){return '<span>'+c+'</span>'}).join('')+'</span>'+
@@ -78,6 +79,25 @@
     });
     if(pts.length){map.fitBounds(pts,{padding:[30,30],maxZoom:13})}else{map.setView([41.72,44.78],11)}
   }
+  var box=null,cur=[],ix=0;
+  function show(){box.querySelector('img').src=cur[ix];box.querySelector('.n').textContent=(ix+1)+' / '+cur.length}
+  function openBox(id){
+    var it=L.filter(function(x){return x.id===id})[0];if(!it||!it.gallery)return;cur=it.gallery;ix=0;
+    if(!box){box=document.createElement('div');box.className='lbox';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');
+      box.innerHTML='<button type="button" class="x" aria-label="Close">×</button><button type="button" class="pv" aria-label="Previous">‹</button><img alt=""><button type="button" class="nx" aria-label="Next">›</button><span class="n"></span>';
+      document.body.appendChild(box);
+      box.addEventListener('click',function(e){
+        if(e.target.classList.contains('nx')){ix=(ix+1)%cur.length;show()}
+        else if(e.target.classList.contains('pv')){ix=(ix-1+cur.length)%cur.length;show()}
+        else if(e.target===box||e.target.classList.contains('x')){box.hidden=true}});
+      document.addEventListener('keydown',function(e){if(box.hidden)return;if(e.key==='Escape')box.hidden=true;if(e.key==='ArrowRight'){ix=(ix+1)%cur.length;show()}if(e.key==='ArrowLeft'){ix=(ix-1+cur.length)%cur.length;show()}});
+      var sx=0;box.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+      box.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>40){ix=(ix+(d<0?1:-1)+cur.length)%cur.length;show()}});
+    }
+    box.hidden=false;show();box.querySelector('.x').focus();
+  }
+  list.addEventListener('click',function(e){var b=e.target.closest('.pcount, .ph img');if(!b)return;var c=b.closest('.card');var id=c.id.slice(2);
+    var it=L.filter(function(x){return x.id===id})[0];if(!it||!it.gallery||it.gallery.length<2)return;e.preventDefault();openBox(id)});
   document.querySelectorAll('[data-kind]').forEach(function(b){b.addEventListener('click',function(){
     state.kind=b.dataset.kind;document.querySelectorAll('[data-kind]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
     fillBudget(window.estateLang());render();})});
