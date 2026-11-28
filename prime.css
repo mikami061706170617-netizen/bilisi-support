@@ -1,0 +1,30 @@
+/* prime.css — investor palette for realestate.html, layered on estate.css.
+   Deep bottle green (private-bank leather), ivory paper, brushed brass. */
+:root{
+  --walnut:#0F2A24;--walnut2:#173A31;--cypress:#24453B;
+  --ochre:#A9844E;--ochre-soft:#E2CDA2;
+  --porcelain:#F5F1E8;--paper:#FBF8F1;--line:#DCD3C2;--mist:#5F675F;--ink:#14201C;
+}
+.bar{background:rgba(15,42,36,.95);border-bottom:1px solid rgba(226,205,162,.18)}
+.search{box-shadow:0 24px 50px -40px rgba(15,42,36,.7)}
+
+/* hero: slow-moving renders inside the arch, brass hairline frame */
+.hero{background:radial-gradient(120% 90% at 85% 0%,#1F4A3F 0%,#0F2A24 55%,#0B211C 100%)}
+.hero .frame{border-color:rgba(226,205,162,.55);position:relative}
+.hero .frame::after{content:"";position:absolute;inset:-8px -8px 0;border:1px solid rgba(226,205,162,.2);border-bottom:0;border-radius:999px 999px 0 0;pointer-events:none}
+.hero .arch.fx-has-slides{position:relative}
+.hero .arch.fx-has-slides>img{opacity:0}
+.hero .arch .fx-dots{bottom:18px}
+.hero .facts b{color:#E9D6AC;font-variant-numeric:tabular-nums}
+.hero .h-xl{color:#FBF8F1}
+
+/* brass buttons */
+.btn.ochre{background:linear-gradient(180deg,#B8955D,#9C7742);box-shadow:inset 0 1px 0 rgba(255,255,255,.25);transition:filter .25s}
+.btn.ochre:hover{filter:brightness(1.08)}
+.btn.ghost{transition:background .25s,color .25s}
+.hero .btn.ghost:hover{background:#FBF8F1;color:#0F2A24}
+
+/* photos drift slightly on hover — the only hover motion on the page */
+.feature .arch img,.tour .arch img,.ground img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.feature .arch:hover img,.tour .arch:hover img,.ground img:hover{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.feature .arch img,.tour .arch img,.ground img{transition:none}}

@@ -20,12 +20,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
 <style>
 body{margin:0;font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;color:#15171A;background:#fff;line-height:1.9;font-size:1rem}
-a{color:#7A1F2B}
+a{color:#C2520E}
 img{max-width:100%;display:block}
 header{border-bottom:1px solid #E2E3E5}
 .top{max-width:1080px;margin:0 auto;padding:1.1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .logo{font-family:'Noto Serif JP',serif;font-weight:700;text-decoration:none;color:#15171A}
-.btn{text-decoration:none;background:#7A1F2B;color:#fff;padding:0 1.5rem;min-height:48px;display:inline-flex;align-items:center;font-weight:700}
+.btn{text-decoration:none;background:#C2520E;color:#fff;padding:0 1.5rem;min-height:48px;display:inline-flex;align-items:center;font-weight:700}
 .btn.line{background:#06C755}
 .btn.wa{background:#25D366}
 .btn.ghost{background:transparent;color:#15171A;border:1px solid #15171A}
@@ -55,7 +55,7 @@ th{border-bottom:2px solid #15171A}
 .scroll{overflow-x:auto}
 ol.flow{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;counter-reset:f}
 ol.flow li{background:#fff;border:1px solid #E2E3E5;padding:1.2rem;counter-increment:f}
-ol.flow li:before{content:"STEP " counter(f);display:block;font-size:.78rem;font-weight:700;color:#7A1F2B;letter-spacing:.05em}
+ol.flow li:before{content:"STEP " counter(f);display:block;font-size:.78rem;font-weight:700;color:#C2520E;letter-spacing:.05em}
 details{border-bottom:1px solid #E2E3E5;padding:1rem 0}
 summary{font-weight:700;cursor:pointer;min-height:44px;display:flex;align-items:center}
 details p{margin:.5rem 0 0;color:#4A4D52;font-size:.95rem}
@@ -66,6 +66,8 @@ footer div{max-width:1080px;margin:0 auto;padding:2rem 1.5rem;font-size:.82rem;c
 @media (min-width:768px){.fab{right:24px;bottom:24px;padding:0 1.4rem;min-height:56px;border-radius:28px}}
 @media (max-width:767px){.fab{left:0;right:0;bottom:0;min-height:56px;padding-bottom:env(safe-area-inset-bottom)}body{padding-bottom:56px}.sec{padding:3.2rem 1rem}.top{padding:1rem}}
 </style>
+<link rel="stylesheet" href="fx.css?v=1">
+<link rel="stylesheet" href="terakoya.css?v=1">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Course","name":"トビリシ寺子屋（ジョージア・ノマド留学）","description":"トビリシで営業中の日本人の店を教室にして、1ヶ月でノマドの稼ぎ方と現地で暮らす手続きを学ぶ選考制プログラム。定員5名。","inLanguage":"ja","provider":{"@type":"Organization","name":"OMURICELAND LLC","url":"https://tbilisi.omeletrice.com/"},"url":"https://tbilisi.omeletrice.com/nomad.html","image":"https://tbilisi.omeletrice.com/img/work-menu.jpg","offers":[{"@type":"Offer","name":"全部込みプラン（1ヶ月の部屋・空港送迎・口座・SIM込み）","price":"348000","priceCurrency":"JPY","category":"Full"},{"@type":"Offer","name":"プログラムだけプラン","price":"198000","priceCurrency":"JPY","category":"Partial"}],"hasCourseInstance":{"@type":"CourseInstance","courseMode":"onsite","location":"Tbilisi, Georgia","courseWorkload":"P1M"}},
@@ -79,7 +81,7 @@ footer div{max-width:1080px;margin:0 auto;padding:2rem 1.5rem;font-size:.82rem;c
 ]}
 </script>
 </head>
-<body>
+<body data-fx="h2, .grid .item, ol.flow li, .photos figure, .split > *">
 
 <header><div class="top">
 <a class="logo" href="/">ジョージア移住・起業サポート</a>
@@ -87,12 +89,12 @@ footer div{max-width:1080px;margin:0 auto;padding:2rem 1.5rem;font-size:.82rem;c
 </div></header>
 
 <section>
-<img src="img/work-menu.jpg" fetchpriority="high" alt="トビリシの店でメニューを貼り出すスタッフ" style="width:100%;height:clamp(300px,52vw,620px);object-fit:cover;object-position:center 40%">
+<div class="nhero" data-slides="img/work-menu.jpg|img/shop-front.jpg|img/oldtown.jpg|img/terrace.jpg|img/menu-window.jpg"><img src="img/work-menu.jpg" fetchpriority="high" alt="トビリシの店でメニューを貼り出すスタッフ" style="width:100%;height:clamp(300px,52vw,620px);object-fit:cover;object-position:center 40%"></div>
 <div class="sec" style="padding-top:3rem">
-<p style="margin:0 0 .6rem;font-weight:700;color:#7A1F2B">第1期（2027年1月）モニター3名募集中　／　トビリシで1ヶ月</p>
+<p style="margin:0 0 .6rem;font-weight:700;color:#C2520E">第1期（2027年1月）モニター3名募集中　／　トビリシで1ヶ月</p>
 <h1>ジョージア・ノマド留学<br><span style="font-size:.62em">トビリシ寺子屋｜ジョージアで暮らして学ぶノマド留学。本物の店を教室にして、海外で稼ぐ力と暮らす手続きを1ヶ月で。</span></h1>
 <p class="lead">トビリシで営業しているオムライス店（Japan Food Hub内）で、本物のSNS・動画・翻訳・接客を1ヶ月担当します。帰るときには「実店舗で出した成果」と「ジョージアで暮らす準備」が手元に残ります。</p>
-<div style="border:2px solid #7A1F2B;padding:1rem 1.2rem;margin:0 0 1.2rem;max-width:640px"><div style="font-weight:700;font-size:1.1rem;line-height:1.7">全部込み 348,000円<br>プログラムのみ 198,000円</div><div style="font-size:.92rem;margin-top:.2rem"><b style="color:#7A1F2B">第1期モニター3名：全部込み 150,000円<br>プログラムのみ 50,000円</b></div><div class="small" style="margin-top:.3rem">各期5名。第1期の申込締切は12月11日。毎週日曜21:00（日本時間）に無料オンライン説明会。航空券・現地の食費は含みません。</div></div>
+<div style="border:2px solid #C2520E;padding:1rem 1.2rem;margin:0 0 1.2rem;max-width:640px"><div style="font-weight:700;font-size:1.1rem;line-height:1.7">全部込み 348,000円<br>プログラムのみ 198,000円</div><div style="font-size:.92rem;margin-top:.2rem"><b style="color:#C2520E">第1期モニター3名：全部込み 150,000円<br>プログラムのみ 50,000円</b></div><div class="small" style="margin-top:.3rem">各期5名。第1期の申込締切は12月11日。毎週日曜21:00（日本時間）に無料オンライン説明会。航空券・現地の食費は含みません。</div></div>
 <div style="display:flex;gap:.75rem;flex-wrap:wrap">
 <a class="btn line" href="https://line.me/R/ti/p/@aloha0154659894">LINEで相談（無料30分）</a>
 <a class="btn wa" href="https://wa.me/message/OFGAZ5PB4D2GK1">WhatsAppで問い合わせる</a>
@@ -214,10 +216,10 @@ footer div{max-width:1080px;margin:0 auto;padding:2rem 1.5rem;font-size:.82rem;c
 <section id="price" class="bt"><div class="sec">
 <h2>参加費（2つから選べます）</h2>
 <div class="grid" style="margin-top:1.5rem">
-<div class="item" style="border:2px solid #7A1F2B;padding:0 0 1.2rem"><img src="img/terrace.jpg" alt="トビリシの街を見下ろすテラス席" loading="lazy" style="width:100%;aspect-ratio:3/2;object-fit:cover;object-position:center 60%;display:block;margin-bottom:1rem"><div style="padding:0 1.2rem"><b style="color:#7A1F2B">おすすめ：全部込みプラン</b><div style="font-size:1.6rem;font-weight:700">348,000円</div><p>プログラムのすべて＋<b style="display:inline">1ヶ月の部屋・空港の出迎え・銀行口座の開設の手伝い・SIM・お店での歓迎ごはん</b>。飛行機を取って来るだけで始められます。</p></div></div>
+<div class="item" style="border:2px solid #C2520E;padding:0 0 1.2rem"><img src="img/terrace.jpg" alt="トビリシの街を見下ろすテラス席" loading="lazy" style="width:100%;aspect-ratio:3/2;object-fit:cover;object-position:center 60%;display:block;margin-bottom:1rem"><div style="padding:0 1.2rem"><b style="color:#C2520E">おすすめ：全部込みプラン</b><div style="font-size:1.6rem;font-weight:700">348,000円</div><p>プログラムのすべて＋<b style="display:inline">1ヶ月の部屋・空港の出迎え・銀行口座の開設の手伝い・SIM・お店での歓迎ごはん</b>。飛行機を取って来るだけで始められます。</p></div></div>
 <div class="item" style="padding:0 0 1.2rem"><img src="img/work-menu.jpg" alt="お店の仕事を題材にした実務の様子" loading="lazy" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block;margin-bottom:1rem"><div style="padding:0 1.2rem"><b>プログラムだけプラン</b><div style="font-size:1.6rem;font-weight:700">198,000円</div><p>出発前のオンライン講座／必修の10の実務／選択2コース／手続きの日本語案内／滞在中の日本語での相談。部屋はご自身で手配します。</p></div></div>
 </div>
-<p style="margin:1.5rem 0 0;font-weight:700;color:#7A1F2B">第1期（2027年1月）はモニター3名限定で、全部込み 150,000円／プログラムだけ 50,000円。発信に協力していただく条件です（<a href="#monitor">条件を見る</a>）。</p>
+<p style="margin:1.5rem 0 0;font-weight:700;color:#C2520E">第1期（2027年1月）はモニター3名限定で、全部込み 150,000円／プログラムだけ 50,000円。発信に協力していただく条件です（<a href="#monitor">条件を見る</a>）。</p>
 <p class="small" style="margin-top:.8rem">お支払いは、申込金50,000円と、残りを出発の1ヶ月前の2回に分けられます。<br>含まれないもの：航空券／現地での食費などの生活費／会社設立・就労許可などの手続き代行（希望する方は<a href="/#services">移住・起業サポート</a>を別料金でご利用いただけます）。</p>
 <div style="margin-top:1.5rem"><a class="btn line" href="https://line.me/R/ti/p/@aloha0154659894">LINEで「ノマド留学」と送って申し込む</a></div>
 </div></section>
@@ -240,7 +242,7 @@ footer div{max-width:1080px;margin:0 auto;padding:2rem 1.5rem;font-size:.82rem;c
 <section id="dates" class="gray"><div class="sec">
 <h2>2027年の日程</h2>
 <div class="grid" style="margin-top:1.2rem">
-<div class="item"><b>第1期</b><p>2027年1月11日（月）〜2月5日（金）<br>定員5名　申込締切 12月11日<br><span style="color:#7A1F2B;font-weight:700">モニター3名限定の特別価格（<a href="#monitor">条件</a>）</span></p></div>
+<div class="item"><b>第1期</b><p>2027年1月11日（月）〜2月5日（金）<br>定員5名　申込締切 12月11日<br><span style="color:#C2520E;font-weight:700">モニター3名限定の特別価格（<a href="#monitor">条件</a>）</span></p></div>
 <div class="item"><b>第2期</b><p>2027年2月15日（月）〜3月12日（金）<br>定員5名　申込締切 1月15日</p></div>
 <div class="item"><b>第3期</b><p>2027年3月22日（月）〜4月16日（金）<br>定員5名　申込締切 2月22日</p></div>
 </div>
@@ -250,7 +252,7 @@ footer div{max-width:1080px;margin:0 auto;padding:2rem 1.5rem;font-size:.82rem;c
 <section class="bt"><div class="sec">
 <div class="split">
 <div>
-<p style="border-left:3px solid #7A1F2B;padding-left:1rem;margin:0 0 2rem">1ヶ月はまだ長い、という人は <a href="nomad-experience.html"><b>1日・1週間のノマド体験</b></a> から試せます。</p>
+<p style="border-left:3px solid #C2520E;padding-left:1rem;margin:0 0 2rem">1ヶ月はまだ長い、という人は <a href="nomad-experience.html"><b>1日・1週間のノマド体験</b></a> から試せます。</p>
 <h2>まずは無料のオンライン説明会へ</h2>
 <p class="lead" style="margin-bottom:1rem">毎週日曜 21:00〜21:30（日本時間）。トビリシのお店からつないで、街の様子・1ヶ月の過ごし方・費用を、そのままお見せします。顔出しなし・質問だけでも大丈夫です。</p>
 <a class="btn line" href="https://line.me/R/ti/p/@aloha0154659894">LINEで「説明会」と送る</a>
@@ -307,7 +309,7 @@ footer div{max-width:1080px;margin:0 auto;padding:2rem 1.5rem;font-size:.82rem;c
 <h2 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.45;margin:0 0 .8rem">トビリシに来たら、Japan Food Hubへ。</h2>
 <p style="margin:0 0 1.2rem;color:#D9D9DC">ラーメンの「鬼武者」と、オムライスと肉寿司の「オムライスランド」。日本人が営むお店がひとつ屋根の下に。移住や起業の相談も、ごはんを食べながらどうぞ。毎日13:00〜23:00、1 Davit Gamrekeli St。</p>
 <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-<a href="/japan-food-hub.html" style="text-decoration:none;background:#7A1F2B;color:#FFFFFF;padding:0 1.3rem;min-height:48px;display:inline-flex;align-items:center;font-weight:700">Japan Food Hubを見る</a>
+<a href="/japan-food-hub.html" style="text-decoration:none;background:#C2520E;color:#FFFFFF;padding:0 1.3rem;min-height:48px;display:inline-flex;align-items:center;font-weight:700">Japan Food Hubを見る</a>
 <a href="https://www.google.com/maps/search/?api=1&amp;query=Japan+Food+Hub+1+Davit+Gamrekeli+St+Tbilisi" style="text-decoration:none;border:1px solid #FFFFFF;color:#FFFFFF;padding:0 1.3rem;min-height:48px;display:inline-flex;align-items:center;font-weight:700">Googleマップ</a>
 </div>
 </div>
@@ -319,5 +321,6 @@ footer div{max-width:1080px;margin:0 auto;padding:2rem 1.5rem;font-size:.82rem;c
 <!-- line-float -->
 <div id="line-float" style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#15171A;color:#F7F3EA;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 12px;box-shadow:0 -2px 10px rgba(0,0,0,.25);font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:1.5"><span style="flex:1;max-width:520px"><b style="color:#D9B45A">LINE登録特典</b>「ジョージア移住・起業 準備リスト」をすぐお送りします</span><a href="https://line.me/R/ti/p/@aloha0154659894" style="flex:none;background:#06C755;color:#fff;text-decoration:none;font-weight:700;padding:10px 16px;white-space:nowrap">LINEで受け取る</a></div>
 <div style="height:72px"></div>
+<script src="fx.js?v=1" defer></script>
 </body>
 </html>

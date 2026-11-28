@@ -1,0 +1,16 @@
+/* shared motion for fx.js */
+.fx-has-slides{position:relative;overflow:hidden}
+.fx-slides{position:absolute;inset:0;z-index:0}
+.fx-slide{position:absolute;inset:-2%;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 1.4s ease,transform 7s ease-out}
+.fx-slide.on{opacity:1;transform:scale(1)}
+.fx-dots{position:absolute;z-index:4;left:50%;bottom:26px;transform:translateX(-50%);display:flex;gap:10px}
+.fx-dots button{all:unset;cursor:pointer;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);transition:width .3s,background .3s}
+.fx-dots button.on{width:28px;border-radius:5px;background:#fff}
+.fx-dots button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.fx-js .fx-rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.fx-js .fx-rv.fx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.fx-slide{transition:none}.fx-js .fx-rv{opacity:1;transform:none}}
+.fx-petals{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.fx-petals span{position:absolute;top:-30px;border-radius:70% 0 70% 0;background:linear-gradient(135deg,#FFD3E1,#F48FB1);opacity:.85;animation:fxFall linear infinite}
+.fx-petals span:nth-child(3n){background:linear-gradient(135deg,#FFF2B3,#FFC93C)}
+@keyframes fxFall{0%{transform:translate(0,-30px) rotate(0)}50%{transform:translate(40px,50vh) rotate(180deg)}100%{transform:translate(-20px,105vh) rotate(360deg)}}

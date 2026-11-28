@@ -1,0 +1,38 @@
+/* BLOOM — wedding theme (pink + vivid yellow). Loaded after luxe.css on wedding pages. */
+:root{--bl-rose:#D63F76;--bl-rose2:#F06A9A;--bl-blush:#FFF1F5;--bl-petal:#FAD0DE;--bl-sun:#FFC93C;--bl-sun2:#FFE38A;--bl-plum:#3E1730;--bl-plum2:#6B2A4C}
+body.lux{background:var(--bl-blush)!important;color:var(--bl-plum)!important}
+body.lux h1,body.lux h2,body.lux h3{color:var(--bl-plum)!important}
+body.lux h2 em,body.lux .intro .big em{color:var(--bl-rose)!important}
+body.lux a{color:var(--bl-rose)}
+body.lux .eyebrow{color:var(--bl-rose)!important}
+body.lux .rule{background:var(--bl-sun)!important}
+::selection{background:var(--bl-sun2);color:var(--bl-plum)}
+/* hero: slideshow */
+body.lux .hero{background:#3E1730!important;animation:none!important}
+body.lux .hero::before{z-index:1!important;background:linear-gradient(180deg,rgba(62,23,48,.45) 0%,rgba(62,23,48,.28) 45%,rgba(62,23,48,.78) 100%)!important}
+body.lux .hero::after{z-index:2!important;border-color:rgba(255,211,225,.55)!important}
+body.lux .hero .wrap{z-index:5!important}
+body.lux .hero h1{color:#FFF8FB!important}
+body.lux .hero h1 em{color:var(--bl-sun)!important;font-style:italic}
+body.lux .hero .eyebrow{color:var(--bl-sun2)!important}
+body.lux .hero p,body.lux .hero .lead{color:#FFE9F1!important}
+/* buttons */
+body.lux .btn-gold,body.lux .btn.btn-gold{background:linear-gradient(135deg,var(--bl-rose),var(--bl-rose2))!important;color:#fff!important;border:0!important;box-shadow:0 10px 30px rgba(214,63,118,.35)}
+body.lux .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(214,63,118,.45)}
+body.lux .btn-line{border:1px solid var(--bl-sun)!important;color:var(--bl-sun2)!important}
+body.lux .btn-line:hover{background:rgba(255,201,60,.15)!important}
+/* sections */
+body.lux section.dark,body.lux .dark{background:linear-gradient(160deg,#4A1A39,#7A2A55)!important;color:#FFEFF5!important}
+body.lux .dark h2,body.lux .dark h3{color:#FFF6F9!important}
+body.lux .dark .eyebrow{color:var(--bl-sun)!important}
+body.lux section.soft,body.lux .soft{background:#FFE4EC!important}
+body.lux section.cta{background:linear-gradient(135deg,#FFD3E1 0%,#FFF1C2 100%)!important}
+body.lux .mosaic figure{border-radius:6px}
+body.lux .mosaic figure img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+body.lux .mosaic figure:hover img{transform:scale(1.07)}
+body.lux .mosaic figcaption{background:linear-gradient(0deg,rgba(62,23,48,.75),transparent)!important;color:#fff!important}
+body.lux .day,body.lux .card,body.lux .pc{border-top:3px solid var(--bl-sun)!important;transition:transform .4s ease,box-shadow .4s ease}
+body.lux .day:hover,body.lux .card:hover,body.lux .pc:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(107,42,76,.16)}
+body.lux .jp-grid div{background:#fff!important;border-color:var(--bl-petal)!important}
+body.lux .jp-grid b{color:var(--bl-rose)!important}
+body.lux details summary::marker{color:var(--bl-rose)}
