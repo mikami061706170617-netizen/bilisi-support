@@ -14,8 +14,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&family=Shippori+Mincho+B1:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="estate.css?v=3">
+<link rel="stylesheet" href="fx.css?v=1">
+<link rel="stylesheet" href="prime.css?v=1">
 </head>
-<body>
+<body data-fx=".h-l, .feature .g1, .feature .g2, .partners, .ground img, .steps li, .tour .pics .arch">
 <header class="bar"><div class="in">
 <a class="brand" href="/realestate.html">Kyohei Estates<small>Tbilisi · Georgia</small></a>
 <nav class="nav"><a href="/realestate.html#listings" data-go="buy"><span data-l="en">Buy</span><span data-l="ja">買う</span></a><a href="/realestate.html#listings" data-go="rent"><span data-l="en">Rent</span><span data-l="ja">借りる</span></a><a href="/realestate.html#partners"><span data-l="en">Partners</span><span data-l="ja">提携会社</span></a><a href="/realestate.html#tour"><span data-l="en">Viewing trip</span><span data-l="ja">視察ツアー</span></a></nav>
@@ -27,9 +29,9 @@
 <h1 class="h-xl"><span data-l="en">Homes in Georgia, found and handled for you.</span><span data-l="ja"><span class="nb">ジョージアの住まいを、</span><br><span class="nb">日本人が探して、</span><span class="nb">最後まで。</span></span></h1>
 <p class="lead"><span data-l="en">New builds, resale flats and rentals in Tbilisi, Batumi and Kakheti. I live in Tbilisi, work directly with the developers and owners, and stay with you from the first viewing to the keys.</span><span data-l="ja">トビリシ・バトゥミ・カヘティの新築、中古、賃貸。トビリシに住む私が、開発会社やオーナーと直接やり取りし、内見から鍵の受け取りまで付き添います。</span></p>
 <div class="btns" style="margin-top:28px"><a class="btn ochre" href="#listings" data-go="buy"><span data-l="en">See properties for sale</span><span data-l="ja">売り物件を見る</span></a><a class="btn ghost" href="#listings" data-go="rent"><span data-l="en">See rentals</span><span data-l="ja">賃貸を見る</span></a></div>
-<div class="facts"><div><b>30+</b><span data-l="en">homes listed</span><span data-l="ja">掲載物件</span></div><div><b>6</b><span data-l="en">partner agencies</span><span data-l="ja">提携会社</span></div><div><b>EN · JA</b><span data-l="en">support</span><span data-l="ja">で対応</span></div></div>
+<div class="facts"><div><b data-count="30" data-suffix="+">30+</b><span data-l="en">homes listed</span><span data-l="ja">掲載物件</span></div><div><b data-count="6">6</b><span data-l="en">partner agencies</span><span data-l="ja">提携会社</span></div><div><b>EN · JA</b><span data-l="en">support</span><span data-l="ja">で対応</span></div></div>
 </div>
-<div class="frame"><div class="arch"><img src="img/realestate/k49/facade.jpg" alt="Kostava 49, Tbilisi (developer rendering)"></div></div>
+<div class="frame"><div class="arch" data-slides="img/realestate/k49/facade.jpg|img/realestate/k49/living.jpg|img/realestate/k49/atrium.jpg|img/realestate/k49/library.jpg|img/realestate/k49/skylight.jpg"><img src="img/realestate/k49/facade.jpg" alt="Kostava 49, Tbilisi (developer rendering)"></div></div>
 </div></section>
 
 <section id="listings" style="padding-top:0"><div class="in">
@@ -111,5 +113,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="estate-data.js?v=3"></script>
 <script src="estate.js?v=3"></script>
+<script src="fx.js?v=1" defer></script>
 </body>
 </html>

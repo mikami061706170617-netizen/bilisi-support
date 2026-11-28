@@ -1,0 +1,33 @@
+/* terakoya.css — orange "learning" theme for nomad.html, layered on its inline style.
+   Bright orange for fills, a deeper burnt orange for text so it stays readable on cream. */
+:root{--or:#F28C28;--or-deep:#C2520E;--or-soft:#FFE7CC;--cream:#FFF8EF;--cocoa:#2E211A}
+body{background:var(--cream);color:var(--cocoa)}
+a{color:var(--or-deep)}
+header{background:#fff;border-bottom:3px solid var(--or)}
+.logo{color:var(--cocoa)}
+.btn{background:var(--or-deep);border-radius:999px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px -12px rgba(194,82,14,.8)}
+.btn.line{background:#06C755}.btn.wa{background:#25D366}
+.btn.ghost{background:#fff;color:var(--cocoa);border:1.5px solid var(--cocoa)}
+.gray{background:var(--or-soft)}
+.bt{border-top:0}
+.dark{background:linear-gradient(160deg,#3A2416,#22160F)}
+h1,h2{color:var(--cocoa)}
+.dark h2{color:#fff}
+h2{position:relative;padding-bottom:.55rem}
+h2::after{content:"";position:absolute;left:0;bottom:0;width:56px;height:4px;border-radius:2px;background:var(--or)}
+.item{border-top:3px solid var(--or)}
+.dark .item{border-top-color:var(--or)}
+ol.flow li{border:0;border-radius:14px;box-shadow:0 10px 30px -22px rgba(46,33,26,.45)}
+ol.flow li:before{color:var(--or-deep)}
+th{border-bottom-color:var(--or)}
+.photos img,.split img{border-radius:14px}
+details{border-bottom-color:#F0D6B8}
+summary::marker{color:var(--or)}
+.fab{background:#06C755}
+
+/* hero slideshow keeps the first photo's height */
+.nhero{position:relative;height:clamp(300px,52vw,620px)}
+.nhero>img{height:100%!important}
+.nhero.fx-has-slides>img{opacity:0}
+.nhero::after{content:"";position:absolute;inset:auto 0 0 0;height:8px;background:var(--or);z-index:2}
